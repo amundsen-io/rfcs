@@ -4,7 +4,7 @@ We can handle most of the issues we see with regular GitHub issues. However, som
 
 The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the [roadmap](roadmap).
 
-The Amundsen team is still new to this processWe can handle most of the issues we see with regular GitHub issues., and we are actively developing it. We ask for feedback from the community to improve this approach, so don't hesitate to give us your feedback!
+The Amundsen team is still new to this process, and we are actively developing it. We ask for feedback from the community to improve this approach, so don't hesitate to give us your feedback!
 
 ## Why?
 
