@@ -13,7 +13,7 @@
 
 > Why are we doing this? What use cases does it support? What is the expected outcome?
 
-## Guide-level explanation
+## Guide-level Explanation (aka Product Details)
 
 > Explain the proposal as if it was already included in Amundsen and you were teaching it to an Amundsen user. That generally means:
 
@@ -23,7 +23,14 @@
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
 
-## Reference-level explanation
+## Design-level Explanation
+
+> Explain the UI changes that your proposal would need (if applicable). This could mean:
+
+> Provide a high level diagram or wireframe about the change.
+> If applicable, suggest error, empty and loading states for the change.
+
+## Reference-level Explanation (aka Technical Details)
 
 > This is the technical portion of the RFC. Explain the design in sufficient detail that:
 
