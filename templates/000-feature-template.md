@@ -23,7 +23,7 @@
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
 
-## Design-level Explanation
+## UI/UX-level Explanation
 
 > Explain the UI changes that your proposal would need (if applicable). This could mean:
 
