@@ -1,6 +1,6 @@
 # Amundsen RFCs
 
-We can handle most of the issues we see with regular GitHub issues. However, some changes are "substantial", and we ask that these go through a design process and produce a consensus among the Amundsen community.
+We can handle most of the issues we see with regular GitHub issues. However, some changes are "substantial", and we ask that these go through a design process and produce a consensus among the Amundsen community and the [sub-teams](sub-teams).
 
 The "RFC" (request for comments) process is intended to provide a consistent and controlled path for new features to enter the [roadmap](roadmap).
 
@@ -55,7 +55,7 @@ In short, to get a major feature added to Amundsen, one must first get the RFC m
 1. Copy the appropriate template file to `rfcs/000-<rfcName>.md`. Don't assign an RFC number yet, as this is going to be the PR number, and we'll rename the file accordingly if the RFC is accepted.
 1. Fill in the RFC. Put care into the details: RFCs that do not present convincing motivation, demonstrate a lack of understanding of the design's impact, or are disingenuous about the drawbacks or alternatives tend to be poorly-received.
 1. Submit a pull request. As a pull request, the RFC will receive design feedback from the larger community, and the author should be prepared to revise it in response.
-1. Build consensus and integrate feedback. RFCs with broad support are much more likely to make progress than those that don't receive any comments.
+1. Build consensus and integrate feedback, especially among the [sub-team](sub-teams) responsible. RFCs with broad support are much more likely to make progress than those that don't receive any comments.
 1. RFCs rarely go through this process unchanged, especially as alternatives and drawbacks are shown. You can make edits, big and small, to the RFC to clarify or change the design, but make changes as new commits to the pull request, and leave a comment on the pull request explaining your changes. Specifically, do not squash or rebase commits after they are visible on the pull request.
 1. RFCs that are candidates for inclusion in Amundsen will enter a **"Final Comment Period (FCP)"**, along with a disposition for the RFC (merge, close, or postpone).
    - This step is taken **when enough of the tradeoffs have been discussed** so that the maintainers are in a position to make a decision. That does not require consensus amongst all participants in the RFC thread. However, the argument supporting the disposition on the RFC needs to have already been clearly articulated. There should not be a strong consensus against that position outside of the maintainer's group.
@@ -106,5 +106,6 @@ Maintainers must ensure that each RFC addresses any consequences, changes, or wo
 [ember rfc process]: https://github.com/emberjs/rfcs
 [vue rfc process]: https://github.com/vuejs/rfcs/blob/master/README.md
 [roadmap]: https://github.com/amundsen-io/amundsen/blob/master/docs/roadmap.md
+[sub-teams]: https://github.com/orgs/amundsen-io/teams
 
 ---
