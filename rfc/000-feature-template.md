@@ -25,6 +25,7 @@ In order to best use badges we want to add sentiment and category fields to the 
 > Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
+- In the future this feature will hopefully replace all use of old Tag badges.
 
 ## UI/UX-level Explanation
 
@@ -45,7 +46,7 @@ In order to best use badges we want to add sentiment and category fields to the 
 The implementation will require:
 - Add methods to the metadata service API to add, remove and, get badges as currently the service uses the methods for tags.
 - Update badge ingestion docs to reflect new API call.
-- 
+- Make updates to search, databuilder and frontend service to add functionality to use Badge instead of Tag.
 
 
 
