@@ -14,7 +14,7 @@ Create a new node type for neo4j which would represent Badges that is separate f
 
 > Why are we doing this? What use cases does it support? What is the expected outcome?
 
-In order to best use badges we want to add sentiment and category fields to the Badge nodes.
+In order to best use badges we want to add sentiment and category fields to the Badge nodes. This makes the Tag and Badge components different, as Badge requires more information now. Separating the two now will likely lead to less tech debt in the future when other features are implemented that impact the way we ingest and use badges.
 
 ## Guide-level Explanation (aka Product Details)
 
@@ -60,12 +60,14 @@ The implementation will require:
 > The impact on onboarding and learning about Amundsen
 > Cost of migrating existing Amundsen installations (is it a breaking change?)
 > If there are tradeoffs to choosing any path. Attempt to identify them here.
+- Takes more effort and time to implement than the alternative of keeping them together.
 
 ## Alternatives
 
 > Why is this design the best in the space of possible designs?
 > What other designs have been considered and what is the rationale for not choosing them?
 > What is the impact of not doing this?
+- Keep the current functionality and simply add two optional parameters fo sentiment and category to Tag.
 
 ## Prior art
 
