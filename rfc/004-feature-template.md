@@ -7,23 +7,18 @@
 
 ## Summary
 
-Create a new node type for neo4j which would represent Badges that is separate from the Tag node.
+There is a need to create a new entity for Badges that is separate from Tag in the metadata service. Badges in Amundsen are components which in the past have been used to indicate different bits of metadata like explaining if a resource was a table view or if a user was no longer active in amundsen (alumni). Tags were also simple bits of information consisting of a name that were used to filter resources when searching, so it made sense to combine them at the time. 
+
+Moving forward we want to use badges to indicate the satus of a table resource (alpha, beta GA, deprecated), weather we recommend using a certain resource, as well as using them to indicate if a column in a table is a primary key or partition column.
 
 ## Motivation
 
-In order to best use badges we want to add sentiment and category fields to the Badge nodes. This makes the Tag and Badge components different, as Badge requires more information now. Separating the two now will likely lead to less tech debt in the future when other features are implemented that impact the way we ingest and use badges. Additionally, this change will help clarify the difference in use and purpose between tags and badges throughtout Amundsen. This feature will also guarantee badges are not ingested without having sentiment and category.
+In order to best use badges we want to add sentiment and category fields to the entity to help decide things like the presentation of the badge (color, placement) and how to prioritize resources based on what badges they have. This makes the Tag and Badge entities different, as Badge requires more information now and will be used in a very different way from Tag. Separating the two now will likely lead to less tech debt in the future when other features are implemented that impact the way we ingest and use badges. Additionally, this change will help clarify the difference in use and purpose between tags and badges throughtout Amundsen. This feature will also guarantee badges are not ingested without having sentiment and category.
 
 
 ## Guide-level Explanation (aka Product Details)
 
-> Explain the proposal as if it was already included in Amundsen and you were teaching it to an Amundsen user. That generally means:
-
-> Introducing new named concepts.
-> Explaining the feature largely in terms of examples.
-> Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
-> If applicable, provide deprecation warnings, or migration guidance.
-> For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
-- In the future this feature will hopefully replace all use of old Tag badges.
+A badge is a predetermined indicator which can be added by a table owner in order to offer informartion about the satus of a table resource (alpha, beta GA, deprecated), weather they recommend using a certain resource, as well as to indicate if a column in a table is a primary key or partition column. Using these to boost results in searches and to filter resources when searching will help Amundsen users find the resources they need easier, as well as help them discern which resources are most trustworthy.
 
 ## Reference-level Explanation (aka Technical Details)
 
@@ -48,6 +43,7 @@ The implementation will require:
 ## Unresolved questions
 
 - Do we want to constraint the input space for sentiment and category to be an enum to reduce room for error rather than being a string?
+- Do we plan to add more attributes for badge later (besides sentiment and category)? 
 
 ## Future possibilities
 
