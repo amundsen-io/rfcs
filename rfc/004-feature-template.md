@@ -18,7 +18,8 @@ In order to best use badges we want to add sentiment and category fields to the 
 
 ## Guide-level Explanation (aka Product Details)
 
-A badge is a predetermined indicator which can be added by a table owner in order to offer informartion about the satus of a table resource (alpha, beta GA, deprecated), weather they recommend using a certain resource, as well as to indicate if a column in a table is a primary key or partition column. Using these to boost results in searches and to filter resources when searching will help Amundsen users find the resources they need easier, as well as help them discern which resources are most trustworthy.
+A badge is a predetermined indicator which can be added by a table owner in order to offer information about the status of a table resource (alpha, beta GA, deprecated), whether they recommend using a certain resource, or to indicate if a column in a table is a primary key or partition column. 
+Using badges to boost results in searches and to filter resources when searching will help Amundsen users find the resources they need easier, as well as help them discern which resources are most trustworthy.
 
 ## Reference-level Explanation (aka Technical Details)
 
