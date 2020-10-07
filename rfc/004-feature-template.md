@@ -9,7 +9,7 @@
 
 There is a need to create a new entity for Badges that is separate from Tag in the metadata service. Badges in Amundsen are components which in the past have been used to indicate different bits of metadata like explaining if a resource was a table view or if a user was no longer active in amundsen (alumni). Tags were also simple bits of information consisting of a name that were used to filter resources when searching, so it made sense to combine them at the time. 
 
-Moving forward we want to use badges to indicate the satus of a table resource (alpha, beta GA, deprecated), weather we recommend using a certain resource, as well as using them to indicate if a column in a table is a primary key or partition column.
+Moving forward we want to use badges to indicate the status of a table resource (alpha, beta GA, deprecated), whether we recommend using a certain resource, as well as using them to indicate if a column in a table is a primary key or partition column.
 
 ## Motivation
 
