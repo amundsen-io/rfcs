@@ -1,6 +1,7 @@
 - Feature Name: Add a abstraction layer to the databuilder's record model
 - Start Date: 2020-10-02
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#5](https://github.com/amundsen-io/rfcs/pull/5)
+
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Add a abstraction layer to the databuilder model
@@ -69,4 +70,7 @@ General agreement over the approach
 ## Future possibilities
 
 This is the first step in introducing other data stores into the databuilder. In the future SeatGeek would like to introduce the other portions of the Neptune integration that they have been working on but since this part of the change is a bit of a overhaul of all the models, its important to get this portion in first. 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4cbebf0f32fa8f7e2682ef3981775b5c1ff4fa8
