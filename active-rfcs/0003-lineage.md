@@ -31,8 +31,8 @@ There are several caveats of this approach which negatively impacts user trust t
 
 
 
-*   The link to in-house lineage tool doesn’t always work. If the table/dataset is not indexed in in-house lineage tool, the user will get a 404 (e.g [user report](https://lyft.slack.com/archives/CBHCUQB2Q/p1584997367078000)).
-*   The UI in in-house lineage tool is hard to browse the actual lineage as it displays the full lineage instead one level at a time (E.g [graph](https://in-house lineage tool.lyft.net/lineage-report/relation/warehouse.core.fact_rides.html?cwRelationContent=graph&cwRelationGraph=dataflow) )
+*   The link to in-house lineage tool doesn’t always work. If the table/dataset is not indexed in in-house lineage tool, the user will get a 404.
+*   The UI in in-house lineage tool is hard to browse the actual lineage as it displays the full lineage instead one level at a time.
 *   The lineage information provided by in-house lineage tool has lots of noise. For example, it will put s3 path as upstream/downstream for a given data set.
 *   Other popular OSS projects (e.g Apache Atlas) provide the UI support on lineage which is a feature gap for Amundsen adoption in the community.
 
@@ -104,12 +104,12 @@ This is more a long term high level approach:
 2. Allow upstream systems to publish lineage info to the lineage topic; have a downstream job(e.g databuilder extractor, or a streaming job to persist that info into neo4j sink).
 3. Build a UI popup on the Amundsen table page.
 
-We will leverage the pull based approach first then push based approach which is similar to how we capture other metadata currently at Lyft. And we have built [https://amundsen.lyft.net/table_detail/gold/hive/expiration/table_lineage](https://amundsen.lyft.net/table_detail/gold/hive/expiration/table_lineage) which has captured the lineage information from in-house lineage tool. We will need to finish the lineage POC to treat the lineage information  as the first class citizen in Amundsen.
+We will leverage the pull based approach first then push based approach which is similar to how we capture other metadata currently at Lyft. And we have built the table_lineage table which has captured the lineage information from in-house lineage tool. We will need to finish the lineage POC to treat the lineage information  as the first class citizen in Amundsen.
 
 
 #### 2: Ingestion and surface the task->table, inter-task and service->table lineage
 
-Currently Amundsen provides which Airflow task produces which table with the [application](https://github.com/lyft/amundsendatabuilder/blob/master/databuilder/models/application.py) model.
+Currently Amundsen provides which Airflow task produces which table with the [application](https://github.com/amundsen-io/amundsendatabuilder/blob/master/databuilder/models/application.py) model.
 
 ![](imgs/003/img3.png)
 
@@ -130,4 +130,4 @@ Furthermore, if we index **inter-task dependency**, we are able to tell which 2n
 
 I think we should at least show which Airflow tasks (especially P0,P1 DAGs) leverage for a given table.
 
-We could consider treating the **[service](https://amundsen.lyft.net/table_detail/gold/hive/etl/data_platform_event_owners)** as a separate node in the graph when we display which event produced by a given service.
+We could consider treating the service as a separate node in the graph when we display which event produced by a given service.
