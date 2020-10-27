@@ -1,6 +1,6 @@
 - Feature Name: ml_project_discovery
 - Start Date: 2020-10-21
-- RFC PR: [amundsen-io/rfcs#000-ml-project-discovery.md](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#008-ml-project-discovery.md](https://github.com/amundsen-io/rfcs/pull/8)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # ML project discovery using Amundsen
@@ -21,13 +21,23 @@ Essentially, that consists of multiple steps including feature engineering, trac
 Many organizations suffers from lack of visiblity over the ML assets delivered by the different teams of data scientists.
 Such model catalog would improve the collaboration within the organization through single interface to discover available ML resources and related metadata.  
 
-The basic use cases can be described as follow:
+Different kind of metadata can be recognized at various stages of the ML project:
 
-*   search for ml projects by project name, project description, project owner
-*   search for ml models by model name, model description, model owner, model stage
-*   search for model deployments by deployment name, deployment description, deployment sample request/response (prediction)
-*   view the data sources used to build the model 
-*   view the metadata of the model, basic evaluation metrics e.g. accuracy, precision, recall, f1 etc.
+*   Create ML Project
+
+    TODO
+    
+*   Feature Engineering
+    
+    Feature may refer to traditional column with some additional metadata e.g. statistics, normalization method
+
+*   Model Training
+
+    process of creating a model, including input parameters like number of iterations, batch size, loss function, optimizer
+
+*   Model Deployment
+
+    model is operating on production, has its owner, description of business context, sample request/response, attached performance reports
 
 ## UI/UX-level Explanation
 
