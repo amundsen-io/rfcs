@@ -1,6 +1,6 @@
 - Feature Name: Support ORM in databuilder
 - Start Date: 2020-10-26
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#0010](https://github.com/amundsen-io/rfcs/pull/10)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # <RFC title>
@@ -37,19 +37,23 @@ Also, the model translator would also include the generator function to convert 
 
     - metric(metric_key, metric_name, metric_description_key, metric_description, metric_type_key, metric_type_name, dashboard_key, dashboard_name)
 
-    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, table_name, table_is_view, table_description_key, table_description, table_programmatic_description, 
+    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, schema_name, schema_description, table_name, table_is_view, table_description_key, table_description, table_programmatic_description, 
     partition_key, high_watermark_key, high_watermark_partition_value, high_watermark_create_time, low_watermark_key, low_watermark_partition_value, low_watermark_create_time, source_key, source, source_type, stat_key, stat_name, stat_value, start_epoch, end_epoch)
 
-    - column(column_key, column_name, column_type, column_sort_order, column_description_key, column_description, column_programmatic_description, stat_key, stat_name, stat_val, start_epoch, end_epoch)
+    - column(column_key, column_name, column_type, column_sort_order, column_description_key, column_description, column_programmatic_description, stat_key, stat_name, stat_val, start_epoch, end_epoch, table_key)
 
     - tag(tag_key, tag_type, metric_key, dashboard_key, table_key, column_key)
     
     - lineage(upstream_key, downstream_key)
     
-    - user(user_key, first_name, last_name, full_name, github_user_name, team_name, employee_type, manager_email, slack_id, is_active, updated_at, role_name, table_key)
+    - user(user_key, first_name, last_name, full_name, github_user_name, team_name, employee_type, manager_email, slack_id, is_active, updated_at, role_name)
     
     - updated_timestamp(updated_timestamp_key, latest_timestamp)
-
+    
+    - owner(entity_type, entity_key, owner_email)
+    
+    - usage(entity_type, entity_key, user_email, read_count)
+    
 - Due to the reuse of graph db models, add new transformers for entities to convert 'node' and 'relationship' data to 'record' with model translators. 
 
 - Add a new data loader(e.g., file_system_mysql_csv_loader) to consume transformed metadata records and dump them into csv to a new 'records' folder. The new data loader works with the ORM model translator and hence, the csv output could be consistent with the schema we defined for ORM.
