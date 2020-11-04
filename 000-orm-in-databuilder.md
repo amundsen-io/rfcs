@@ -37,22 +37,30 @@ Also, the model translator would also include the generator function to convert 
 
     - metric(metric_key, metric_name, metric_description_key, metric_description, metric_type_key, metric_type_name, dashboard_key, dashboard_name)
 
-    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, schema_name, schema_description, table_name, table_is_view, table_description_key, table_description, table_programmatic_description, 
+    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, schema_name, schema_description_key, schema_description, table_name, table_is_view, table_description_key, table_description, table_programmatic_description, last_updated_key, last_updated_timestamp, last_updated_timestamp_name,
     partition_key, high_watermark_key, high_watermark_partition_value, high_watermark_create_time, low_watermark_key, low_watermark_partition_value, low_watermark_create_time, source_key, source, source_type, stat_key, stat_name, stat_value, start_epoch, end_epoch)
 
     - column(column_key, column_name, column_type, column_sort_order, column_description_key, column_description, column_programmatic_description, stat_key, stat_name, stat_val, start_epoch, end_epoch, table_key)
 
-    - tag(tag_key, tag_type, metric_key, dashboard_key, table_key, column_key)
+    - tag(tag_key, tag_type, entity_key)
     
     - lineage(upstream_key, downstream_key)
     
     - user(user_key, first_name, last_name, full_name, github_user_name, team_name, employee_type, manager_email, slack_id, is_active, updated_at, role_name)
-    
-    - updated_timestamp(updated_timestamp_key, latest_timestamp)
-    
+        
     - owner(entity_type, entity_key, owner_email)
     
     - usage(entity_type, entity_key, user_email, read_count)
+    
+    - dashboard(dashboard_key, dashboard_name, dashboard_created_timestamp, dashboard_url, dashboard_description_key, dashboard_description, last_execution_key, last_execution_timestamp, last_execution_state, last_modified_key, last_modified_timestamp, last_modified_timestamp_name, group_key, group_name, group_url, group_description_key, group_description, cluster_key, cluster_name)
+    
+    - dashboard_query(query_key, query_id, query_name, query_url, query_text, dashboard_key)
+    
+    - dashboard_chart(chart_key, chart_id, chart_name, chart_type, chart_url, query_key)
+    
+    - dashboard_table(dashboard_key, table_key)
+    
+    - badge(badge_key, badge_category, entity_key)
     
 - Due to the reuse of graph db models, add new transformers for entities to convert 'node' and 'relationship' data to 'record' with model translators. 
 
