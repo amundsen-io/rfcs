@@ -58,7 +58,7 @@ class MyCustomConfig(Config):
 
 ## Alternatives
 
-* Only alternative to achieve this for now is tu subclass Elasticsearch Proxy and reimplement whole search methods.
+* Only alternative to achieve this for now is to subclass Elasticsearch Proxy and reimplement whole search methods.
 
 ## Prior art
 
