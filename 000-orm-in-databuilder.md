@@ -3,7 +3,7 @@
 - RFC PR: [amundsen-io/rfcs#0010](https://github.com/amundsen-io/rfcs/pull/10)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
-# <RFC title>
+# Support ORM in databuilder
 
 ## Summary
 
@@ -37,10 +37,10 @@ Also, the model translator would also include the generator function to convert 
 
     - metric(metric_key, metric_name, metric_description_key, metric_description, metric_type_key, metric_type_name, dashboard_key, dashboard_name)
 
-    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, schema_name, schema_description_key, schema_description, table_name, table_is_view, table_description_key, table_description, table_programmatic_description, last_updated_key, last_updated_timestamp, last_updated_timestamp_name,
+    - table(table_key, database_key, database_name, cluster_key, cluster_name, schema_key, schema_name, schema_description_key, schema_description, schema_programmatic_description_key, schema_programmatic_description, table_name, table_is_view, table_description_key, table_description, table_programmatic_description_key, table_programmatic_description, last_updated_key, last_updated_timestamp, last_updated_timestamp_name,
     partition_key, high_watermark_key, high_watermark_partition_value, high_watermark_create_time, low_watermark_key, low_watermark_partition_value, low_watermark_create_time, source_key, source, source_type, stat_key, stat_name, stat_value, start_epoch, end_epoch)
 
-    - column(column_key, column_name, column_type, column_sort_order, column_description_key, column_description, column_programmatic_description, stat_key, stat_name, stat_val, start_epoch, end_epoch, table_key)
+    - column(column_key, column_name, column_type, column_sort_order, column_description_key, column_description, column_programmatic_description_key, column_programmatic_description, stat_key, stat_name, stat_val, start_epoch, end_epoch, table_key)
 
     - tag(tag_key, tag_type, entity_key)
     
@@ -90,7 +90,7 @@ Moreover, we will have to ensure any future changes compatible not only in two m
 N/A
 ## Unresolved questions
 
-- The initial relational DB schema plan was made according to the current graph DB models and it may need some polishment from Amundsen staff who are more familiar with real uses.
+- The initial relational DB schema plan was made according to the current graph DB models and it may need some polishment from Amundsen staff who are more familiar with real use cases.
 - Regarding how to map graph db models to ORM models, it would be great if there is a dynamic way for the model conversion
 ## Future possibilities
 
