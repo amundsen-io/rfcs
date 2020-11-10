@@ -1,6 +1,6 @@
 - Proposal Name: Use the Black formatter to format all Python code
 - Start Date: 2020-11-10
-- RFC PR: [amundsen-io/rfcs#13](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#13](https://github.com/amundsen-io/rfcs/pull/14)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # <RFC title>
