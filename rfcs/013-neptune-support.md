@@ -1,6 +1,6 @@
 - Feature Name: Amazon Neptune Databuilder support
 - Start Date: 2020-11-10
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#13](https://github.com/amundsen-io/rfcs/pull/13)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 #  Amazon Neptune Databuilder Support
