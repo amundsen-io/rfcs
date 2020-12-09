@@ -1,6 +1,6 @@
 - Feature Name: migrate_to_official_atlas_client
 - Start Date: 2020-11-09
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#17](https://github.com/amundsen-io/rfcs/pull/17) (after opening the RFC PR, update this with a link to it and update the file name)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Migrate to Official Python Atlas Client
