@@ -1,6 +1,6 @@
 - Feature Name: Support Relational Database Models
 - Start Date: 2020-12-14
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#0019](https://github.com/amundsen-io/rfcs/pull/0019)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Support Relational Database Models
