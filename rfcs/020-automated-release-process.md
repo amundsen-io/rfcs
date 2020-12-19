@@ -43,7 +43,8 @@ N/A
 
 ## Unresolved questions
 
-- So far I've only looked into https://github.com/marketplace/actions/generate-changelog-action but some testing is required to confirm it'd work with our MR naming convention or different tool should be used 
+Select tool for changelog generation:
+- So far I've only looked into https://github.com/marketplace/actions/generate-changelog-action which shoudl already be compliant with our title naming convention
 
 ## Future possibilities
 
