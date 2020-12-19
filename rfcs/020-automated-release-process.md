@@ -1,9 +1,9 @@
-- Feature Name: Automate Release Process
+- Feature Name: Automated Release Process
 - Start Date: 2020-12-19
-- RFC PR: [amundsen-io/rfcs#00](https://github.com/amundsen-io/rfcs/pull/00)
+- RFC PR: [amundsen-io/rfcs#20](https://github.com/amundsen-io/rfcs/pull/20)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
-#  Amazon Neptune Databuilder Support
+# Automated Release Process
 
 ## Summary
 
