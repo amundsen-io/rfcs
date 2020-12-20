@@ -48,4 +48,5 @@ Select tool for changelog generation:
 
 ## Future possibilities
 
+- Enabling release-candidates to quickly ship patches/feature previews
 - Notifying Slack community automatically when new release is created
