@@ -19,18 +19,35 @@ The motivation behind this RFC is to automate, unify and simplify release proces
 
 Having enforced naming convention for MRs we can leverage this to automatically categorize MRs and render them in
 changelog. By using automated github actions we can remove manual step from release process (releasing, rendering changelog)
-and replace it with simple git tag creation.
+and replace it with three operations:
 
-## UI/UX-level Explanation
-
-Pushing new tag by user creating release triggers and makes releasing almost effortless.
+- creating a git tag triggers a release
+- periodical releases every month
+- pre-releases with each change added to master
 
 ## Reference-level Explanation (aka Technical Details)
+
+The plan for each release option is:
+
+### Continuous Pre-releases
+
+- Implement a new github action called `Pre-releases` that will trigger on every PR merged into master
+- The action does:
+  - Uses checkout action to get latest code for the workflow.
+  - Uses python-semantic-release to auto generate the latest pre-release version number:
+    - Updates changelog file.
+    - Run :ref:`cmd-version`.
+    - Push changes to git.
+    - Run :ref:`config-build_command` and upload the created files to PyPI as a prerelease.
+    - Run :ref:`cmd-changelog` and post to your vcs provider.
+    - Attach the files created by :ref:`config-build_command` to GitHub releases as a pre-release.
+
+### Periodical Releases
 
 - Implement new github action `Monthly Release` that would be triggered on a monthly basis.
 - The action does the following:
   - Uses checkout action to get latest code for the workflow.
-  - Uses python-semantic-release to auto generate the latest version number. The following steps occurr from the new-release branch:
+  - Uses python-semantic-release to auto generate the latest version number. The following steps occur from the new-release branch:
     - Update changelog file.
     - Run :ref:`cmd-version`.
     - Push changes to git.
@@ -38,6 +55,10 @@ Pushing new tag by user creating release triggers and makes releasing almost eff
     - Run :ref:`cmd-changelog` and post to your vcs provider.
     - Attach the files created by :ref:`config-build_command` to GitHub releases.
   - Uses create-pull-request to create a PR with the changes from new-release to get approved and merged into master.
+
+### Tagged Releases
+
+- Keep the current github action `pypipublish` that already publishes a release on uploaded tags.
 
 ## Drawbacks
 
@@ -55,11 +76,9 @@ N/A
 
 ## Unresolved questions
 
-Select tool for changelog generation:
-
-- So far I've only looked into https://github.com/marketplace/actions/generate-changelog-action which shoudl already be compliant with our title naming convention
+- Is the current monthly release with PR good enough for us?
+- Would we need to do the same for pre-releases?
 
 ## Future possibilities
 
-- Enabling release-candidates to quickly ship patches/feature previews
-- Notifying Slack community automatically when new release is created
+- Notifying Slack community automatically when new releases are created
