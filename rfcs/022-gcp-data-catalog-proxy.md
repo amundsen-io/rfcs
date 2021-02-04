@@ -49,6 +49,7 @@ To support GCP Data Catalog proxy several new components are needed:
 ## Drawbacks
 
 * another datastore which brings in additional components and increases the code size of the repo
+* no control over Data Catalog (and it's API) means incompatibilities might arise with time
 
 ## Alternatives
 
