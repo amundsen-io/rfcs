@@ -1,6 +1,6 @@
 - Feature Name: GCP Data Catalog Proxy Support
 - Start Date: 2021-02-04
-- RFC PR: [amundsen-io/rfcs#](https://github.com/amundsen-io/rfcs/pull/)
+- RFC PR: [amundsen-io/rfcs#22](https://github.com/amundsen-io/rfcs/pull/22)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # GCP Data Catalog Proxy Support
@@ -11,7 +11,7 @@ This RFC proposes introducing support for GCP Data Catalog as new Proxy.
 
 ## Motivation
 
-As of now there is no support for fully-managed proxy in Amundsen. It always entails :
+As of now there is no support for fully-managed proxy in Amundsen. It always entails:
 * running backend (elasticsearch+neo4j, atlas+solr/elastic+hbase/cassandra, or just elastic when using neptune)
 * metadata ingestion processes
 
@@ -21,6 +21,7 @@ This RFC proposes proxy, whose backend services:
 * to fulfill basic Amundsen functionality don't require databuilder usage
 
 From the perspective of current GCP users:
+* it is super simple deployment not requiring any maintenance on backend services
 * it can be useful if projects do not want to share GCP Console to end users (which is required to access Data Catalog)
 * are in need of modern UI and good UX. Data Catalog has simple and unwelcome user interface lacking of modern solutions and inviting UX. In this area Amundsen can serve as a thin layer of fresh, friendly and wisely-opinionated frontend.
 
