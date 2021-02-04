@@ -18,6 +18,7 @@ As of now there is no support for fully-managed proxy in Amundsen. It always ent
 This RFC proposes proxy, whose backend services:
 * are fully managed by cloud operator (GCP) and do not entail any maintenance
 * are integrated with data entities created within GCP
+* enable rich type system supporting custom entity definitions
 * to fulfill basic Amundsen functionality don't require databuilder usage
 
 From the perspective of current GCP users:
@@ -31,7 +32,7 @@ Another benefit is it expands Amundsens reach by supporting mainstream cloud pro
 
 Instead of running and maintaining Amundsen backend services for metadata, users of GCP can use Amundsen with Data Catalog as backend.
 
-The installation requires minimal and be gradually enriched by the use of google-provided metadata connectors (https://github.com/GoogleCloudPlatform/datacatalog-connectors)
+The installation requires minimal effort and be gradually enriched by the use of google-provided metadata connectors (https://github.com/GoogleCloudPlatform/datacatalog-connectors)
 
 ## UI/UX-level Explanation
 
