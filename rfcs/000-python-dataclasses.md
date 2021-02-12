@@ -57,7 +57,7 @@ Nothing changes on the UI/UX.
 - The primary change will happen in amundsencommon repositories where we are defining the models. I believe no other major change 
 will be required in any other repository. 
 
-- DROPS SUPPORT OF PYTHON 3.6
+- Python 3.6 can still be supported as long as it's needed through  backported to py36 ([ericvsmith/dataclasses](https://github.com/ericvsmith/dataclasses)). 
 
 ## Drawbacks
 
