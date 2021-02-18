@@ -1,6 +1,6 @@
 - Feature Name: Add MySQL as a data sink in the databuilder
 - Start Date: 2021-02-17
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#23](https://github.com/amundsen-io/rfcs/pull/23)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Add MySQL as a data sink in the databuilder
