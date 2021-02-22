@@ -52,7 +52,7 @@ In short, to get a major feature added to Amundsen, one must first get the RFC m
 
 1. Fork the RFC repo https://github.com/amundsen-io/rfcs
 1. Choose the appropriate RFC template. For most RFCs, this is `templates/0000-feature-template.md`, for deprecation RFCs it is `templates/000-deprecation-template.md`.
-1. Copy the appropriate template file to `rfc/000-<rfcName>.md`. Don't assign an RFC number yet, as this is going to be the PR number, and we'll rename the file accordingly if the RFC is accepted.
+1. Copy the appropriate template file to `rfcs/000-<rfcName>.md`. Don't assign an RFC number yet, as this is going to be the PR number, and we'll rename the file accordingly if the RFC is accepted.
 1. Fill in the RFC. Put care into the details: RFCs that do not present convincing motivation, demonstrate a lack of understanding of the design's impact, or are disingenuous about the drawbacks or alternatives tend to be poorly-received.
 1. Submit a pull request. As a pull request, the RFC will receive design feedback from the larger community, and the author should be prepared to revise it in response.
 1. Build consensus and integrate feedback, especially among the [sub-team](sub-teams) responsible. RFCs with broad support are much more likely to make progress than those that don't receive any comments.
