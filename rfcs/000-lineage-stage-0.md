@@ -1,6 +1,6 @@
 - Feature Name: lineage_stage_0
 - Start Date: 2021-02-22
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#24](https://github.com/amundsen-io/rfcs/pull/24) (after opening the RFC PR, update this with a link to it and update the file name)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # <RFC title>
@@ -8,13 +8,15 @@
 ## Summary
 
 > One paragraph explanation of the feature.
-Create a new node type for neo4j which would represent Badges that is separate from the Tag node.
+
+Currently Amundsen doesn't have a way of surfacing lineage information for tables and columns. The idea fir this first iteration is to have a way to show upstream and downstream tables and columns to users through the 
 
 ## Motivation
 
 > Why are we doing this? What use cases does it support? What is the expected outcome?
 
-In order to best use badges we want to add sentiment and category fields to the Badge nodes.
+Lineage is essential to improving data discovery in Amundsen because it allows users to know where the data for a given resource is coming from and where this data is used downstream. 
+
 
 ## Guide-level Explanation (aka Product Details)
 
@@ -25,7 +27,7 @@ In order to best use badges we want to add sentiment and category fields to the 
 > Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
-- In the future this feature will hopefully replace all use of old Tag badges.
+
 
 ## UI/UX-level Explanation
 
@@ -42,11 +44,6 @@ In order to best use badges we want to add sentiment and category fields to the 
 > It is reasonably clear how the feature would be implemented.
 > Corner cases are dissected by example.
 > The section should return to the examples given in the previous section, and explain more fully how the detailed proposal makes those examples work.
-
-The implementation will require:
-- Add methods to the metadata service API to add, remove and, get badges as currently the service uses the methods for tags.
-- Update badge ingestion docs to reflect new API call.
-- Make updates to search, databuilder and frontend service to add functionality to use Badge instead of Tag.
 
 
 
