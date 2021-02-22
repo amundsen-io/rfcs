@@ -28,7 +28,7 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
 
-![Lineage Stage 0 Architecture](https://github.com/amundsen-io/rfcs/assets/lineage_arch.png)
+![Lineage Stage 0 Architecture](assets/lineage_arch.png)
 
 
 ## UI/UX-level Explanation
