@@ -1,19 +1,16 @@
 - Feature Name: lineage_stage_0
 - Start Date: 2021-02-22
-- RFC PR: [amundsen-io/rfcs#24](https://github.com/amundsen-io/rfcs/pull/24) (after opening the RFC PR, update this with a link to it and update the file name)
-- Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
-
-# <RFC title>
+- RFC PR: [amundsen-io/rfcs#24](https://github.com/amundsen-io/rfcs/pull/24)
+- Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000)
+# Amundsen Lineage - Stage 0
 
 ## Summary
 
-> One paragraph explanation of the feature.
 
 Currently Amundsen doesn't have a way of surfacing lineage information for tables and columns. The idea for this first iteration is to have a way to show upstream and downstream tables and columns to users through the Table Details page so they can explore the current resource's lineage as well as navigate to related resources in Amundsen.
+The first iteration is meant to be a fast implementation of the feature that we can get feedback on and improve in future iterations.
 
 ## Motivation
-
-> Why are we doing this? What use cases does it support? What is the expected outcome?
 
 Lineage is essential to improving data discovery in Amundsen because it allows users to know where the data for a given resource is coming from as well as where this data is used downstream. 
 
@@ -28,7 +25,12 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
 
-![Lineage Stage 0 Architecture](assets/lineage_arch.png)
+### New Concepts
+- Lineage:
+- Upstream:
+- Downstream:
+
+Those implementing Amundsen should keep in mind that this feature is meant to provide them with a way to surface their existing lineage data by calling the service containing that data from the metadata service. This iteration won't provide a model to persist lineage on neo4j, but rather a gateway to lineage data so it can be included on lineage API responses to displayed in frontend. It is also important to understand that the feature will be disabled by default and can be enable through configuration.
 
 
 ## UI/UX-level Explanation
@@ -46,6 +48,50 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 > It is reasonably clear how the feature would be implemented.
 > Corner cases are dissected by example.
 > The section should return to the examples given in the previous section, and explain more fully how the detailed proposal makes those examples work.
+![Lineage Stage 0 Architecture](assets/lineage_arch.png)
+
+### Backend Implementation
+In order to implement this feature on the backend side, we will have to create a Lienage API for Tables and Columns. This API will receive requests for the following cases:
+
+_The table details page must list X levels of downstream and upstream dataset name, level, source (database), badges, on the DOWNSTREAM and UPSTREAM tabs. These datasets should also be sortable by usage._
+
+When the user clicks the DOWNSTREAM or UPSTREAM tabs on the table details page, either of 2 requests to metadata will be executed containing lineage direction (upstream/downstream) and depth (levels):
+
+```https://amundsenmetadata.com/table/current_table_key/lineage?direction=upstream&depth=1```
+OR
+```https://amundsenmetadata.com/table/current_table_key/lineage?direction=downstream&depth=1```
+
+will be executed and the lineage call will return a response:
+{
+  “key”: “current_table_key”,
+  “direction”: “upstream”
+  “lineage_entities”: [
+    {
+      “table”: “table_key1”,
+      “level”: 1,
+      "source": “hive”,
+      “badges”: [“coco”, “beta”],
+      “usage”: 234,
+    },
+  ]
+}
+
+OR
+
+{
+  “key”: “current_table_key”,
+  “direction”: “downstream”
+  “lineage_entities”: [
+    {
+      “table”: “table_key2”,
+      “level”: 1,
+      "source": “hive”,
+      “badges”: [],
+      “usage”: 45,
+    },
+  ]
+}
+
 
 
 
@@ -87,3 +133,6 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 > Think about what the natural extension and evolution of your proposal would be and how it would affect the project as a whole in a holistic way. Also consider how the this all fits into the roadmap for the project and of the relevant sub-team.
 > This is also a good place to "dump ideas", if they are out of scope for the RFC you are writing but otherwise related.
 > If you have tried and cannot think of any future possibilities, you may simply state that you cannot think of anything.
+- Persist lineage data on neo4j: create extractors for databuilder library to extract the data and publish it
+- Implement lineage graph view for better discovery experience
+- Introduce a Task entity on Amundsen to surface pipepline tasks between tables and column and understand what tasks are repsonsible for generating tables
