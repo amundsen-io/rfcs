@@ -41,27 +41,28 @@ Those implementing Amundsen should keep in mind that this feature is meant to pr
 > If applicable, suggest error, empty and loading states for the change.
 
 ## Reference-level Explanation (aka Technical Details)
+### Architecture
 
-> This is the technical portion of the RFC. Explain the design in sufficient detail that:
-
-> Its interaction with other features is clear.
-> It is reasonably clear how the feature would be implemented.
-> Corner cases are dissected by example.
-> The section should return to the examples given in the previous section, and explain more fully how the detailed proposal makes those examples work.
 ![Lineage Stage 0 Architecture](assets/lineage_arch.png)
+Implementing this feature will require defining a Lienage API on the metadata service for Tables and Columns. When the API is called it will make calls to neo4j and whatever the source of lineage data is. An interface needs to be created to interact with an implementer's lineage service in a generic way. The data from the calls to these services will be put together to form the lineage response as defined below.
 
 ### Backend Implementation
-In order to implement this feature on the backend side, we will have to create a Lienage API for Tables and Columns. This API will receive requests for the following cases:
+
+#### Table Lineage API
 
 _The table details page must list X levels of downstream and upstream dataset name, level, source (database), badges, on the DOWNSTREAM and UPSTREAM tabs. These datasets should also be sortable by usage._
 
 When the user clicks the DOWNSTREAM or UPSTREAM tabs on the table details page, either of 2 requests to metadata will be executed containing lineage direction (upstream/downstream) and depth (levels):
 
 ```https://amundsenmetadata.com/table/current_table_key/lineage?direction=upstream&depth=1```
+
 OR
+
 ```https://amundsenmetadata.com/table/current_table_key/lineage?direction=downstream&depth=1```
 
 will be executed and the lineage call will return a response:
+
+```
 {
   “key”: “current_table_key”,
   “direction”: “upstream”
@@ -75,9 +76,11 @@ will be executed and the lineage call will return a response:
     },
   ]
 }
+```
 
 OR
 
+```
 {
   “key”: “current_table_key”,
   “direction”: “downstream”
@@ -91,8 +94,54 @@ OR
     },
   ]
 }
+```
+
+#### Column Lineage API
+_The expanded view of a column in the table details page must display lists of upstream and downstream columns at the same time._ 
+
+When the user expands the column to see more details 2 requests to metadata will be executed as follows:
 
 
+```https://amundsenmetadata.com/table/current_table_key/column/column_name/lineage?direction=upstream&depth=1```
+AND
+```https://amundsenmetadata.com/table/current_table_key/column/column_name/lineage?direction=downstream&depth=1```
+
+
+and the lineage call will return a response:
+
+```
+{
+  “key”: “current_table_key/current_column_name”,
+  “direction”: “upstream”
+  “lineage_entities”: [
+    {
+      “key”: “table_key1/column_name1”,
+      “level”: 1,
+      "source": “hive”,
+      “usage”: 234,
+    },
+    ...
+  ]
+}
+```
+
+AND 
+
+```
+{
+ “key”: “current_table_key/current_column_name”,
+  “direction”: “downstream”
+  “lineage_entities”: [
+    {
+      “key”: “table_key2/column_name2”,
+      “level”: 1,
+      "source": “hive”,
+      “usage”: 45,
+    },
+    ...
+  ]
+}
+```
 
 
 ## Drawbacks
