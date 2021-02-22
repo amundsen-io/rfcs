@@ -9,13 +9,13 @@
 
 > One paragraph explanation of the feature.
 
-Currently Amundsen doesn't have a way of surfacing lineage information for tables and columns. The idea fir this first iteration is to have a way to show upstream and downstream tables and columns to users through the 
+Currently Amundsen doesn't have a way of surfacing lineage information for tables and columns. The idea for this first iteration is to have a way to show upstream and downstream tables and columns to users through the Table Details page so they can explore the current resource's lineage as well as navigate to related resources in Amundsen.
 
 ## Motivation
 
 > Why are we doing this? What use cases does it support? What is the expected outcome?
 
-Lineage is essential to improving data discovery in Amundsen because it allows users to know where the data for a given resource is coming from and where this data is used downstream. 
+Lineage is essential to improving data discovery in Amundsen because it allows users to know where the data for a given resource is coming from as well as where this data is used downstream. 
 
 
 ## Guide-level Explanation (aka Product Details)
@@ -27,6 +27,8 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 > Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
 > If applicable, provide deprecation warnings, or migration guidance.
 > For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
+
+![Lineage Stage 0 Architecture](https://github.com/amundsen-io/rfcs/assets/lineage_arch.png)
 
 
 ## UI/UX-level Explanation
