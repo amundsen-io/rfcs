@@ -1,6 +1,6 @@
 - Feature Name: lineage_stage_0
 - Start Date: 2021-02-22
-- RFC PR: [amundsen-io/rfcs#24](https://github.com/amundsen-io/rfcs/pull/24)
+- RFC PR: [amundsen-io/rfcs#25](https://github.com/amundsen-io/rfcs/pull/25)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000)
 # Amundsen Lineage - Stage 0
 
@@ -58,7 +58,7 @@ will be executed and the lineage call will return a response:
 {
   “key”: “current_table_key”,
   “direction”: “upstream”
-  “lineage_entities_upstream”: [
+  “upstream_entities”: [
     {
       “table”: “table_key1”,
       “level”: 1,
@@ -68,7 +68,7 @@ will be executed and the lineage call will return a response:
     },
     ...
   ],
-  “lineage_entities_downstream”: []
+   “downstream_entities”: []
 }
 ```
 OR
@@ -76,8 +76,8 @@ OR
 {
   “key”: “current_table_key”,
   “direction”: “downstream”
-  “Lineage_entities_upstream”: [],
-  “lineage_entities_downstream”: [
+  “upstream_entities”: [],
+   “downstream_entities”: [
     {
       “table”: “table_key2”,
       “level”: 1,
@@ -98,7 +98,7 @@ and the lineage call will return a response:
 {
   “key”: “current_table_key/current_column_name”,
   “direction”: “all”
-  “lineage_entities_upstream”: [
+  “upstream_entities”: [
     {
       “key”: “table_key1/column_name1”,
       “level”: 1,
@@ -107,7 +107,7 @@ and the lineage call will return a response:
     },
     ...
   ],
- “lineage_entities_downstream”: [
+  “downstream_entities”: [
     {
       “key”: “table_key2/column_name2”,
       “level”: 1,
