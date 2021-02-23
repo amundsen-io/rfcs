@@ -66,7 +66,7 @@ will be executed and the lineage call will return a response:
 {
   “key”: “current_table_key”,
   “direction”: “upstream”
-  “lineage_entities”: [
+  “lineage_entities_upstream”: [
     {
       “table”: “table_key1”,
       “level”: 1,
@@ -74,7 +74,9 @@ will be executed and the lineage call will return a response:
       “badges”: [“coco”, “beta”],
       “usage”: 234,
     },
-  ]
+    ...
+  ],
+  “lineage_entities_downstream”: []
 }
 ```
 
@@ -84,7 +86,8 @@ OR
 {
   “key”: “current_table_key”,
   “direction”: “downstream”
-  “lineage_entities”: [
+  “Lineage_entities_upstream”: [],
+  “lineage_entities_downstream”: [
     {
       “table”: “table_key2”,
       “level”: 1,
@@ -92,6 +95,7 @@ OR
       “badges”: [],
       “usage”: 45,
     },
+    ...
   ]
 }
 ```
@@ -102,9 +106,7 @@ _The expanded view of a column in the table details page must display lists of u
 When the user expands the column to see more details 2 requests to metadata will be executed as follows:
 
 
-```https://amundsenmetadata.com/table/current_table_key/column/column_name/lineage?direction=upstream&depth=1```
-AND
-```https://amundsenmetadata.com/table/current_table_key/column/column_name/lineage?direction=downstream&depth=1```
+```https://amundsenmetadata.com/table/current_table_key/column/column_name/lineage?direction=both&depth=1```
 
 
 and the lineage call will return a response:
@@ -112,8 +114,8 @@ and the lineage call will return a response:
 ```
 {
   “key”: “current_table_key/current_column_name”,
-  “direction”: “upstream”
-  “lineage_entities”: [
+  “direction”: “all”
+  “lineage_entities_upstream”: [
     {
       “key”: “table_key1/column_name1”,
       “level”: 1,
@@ -121,17 +123,8 @@ and the lineage call will return a response:
       “usage”: 234,
     },
     ...
-  ]
-}
-```
-
-AND 
-
-```
-{
- “key”: “current_table_key/current_column_name”,
-  “direction”: “downstream”
-  “lineage_entities”: [
+  ],
+ “lineage_entities_downstream”: [
     {
       “key”: “table_key2/column_name2”,
       “level”: 1,
