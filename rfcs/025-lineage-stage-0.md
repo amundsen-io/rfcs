@@ -17,29 +17,33 @@ Lineage is essential to improving data discovery in Amundsen because it allows u
 
 ## Guide-level Explanation (aka Product Details)
 
-> Explain the proposal as if it was already included in Amundsen and you were teaching it to an Amundsen user. That generally means:
-> Introducing new named concepts.
-> Explaining the feature largely in terms of examples.
-> Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
-> If applicable, provide deprecation warnings, or migration guidance.
-> For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
 ### New Concepts
-- Lineage:
-- Upstream:
-- Downstream:
+- Lineage: Lineage is a term that describes the flow of data from one entity to another. While this term can broadly include everything from services, events, ETLs, and dashboards, we will focus on table-to-table and column-to-column data lineage in this RFC. 
+- Upstream: Upstream is a relative term that describes data sources from which we inherit. Data flows from upstream to downstream.
+- Downstream: Downstream is a relative term that describes data entities which consume our data. 
+
+This feature will expose upstream and downstream tables and columns within the `Table Details` page.
 
 Those implementing Amundsen should keep in mind that this feature is meant to provide them with a way to surface their existing lineage data by calling the service containing that data from the metadata service. This iteration won't provide a model to persist lineage on neo4j, but rather a gateway to lineage data so it can be included on lineage API responses to displayed in frontend. It is also important to understand that the feature will be disabled by default and can be enable through configuration.
 
 
 ## UI/UX-level Explanation
 
-> Explain the UI changes that your proposal would need (if applicable). This could mean:
-> Provide a high level diagram or wireframe about the change.
-> If applicable, suggest error, empty and loading states for the change.
+![Table Lineage Preview](assets/025/table-lineage-preview.png)
+
+We will add two additional tabs to the `Table Details` page, `Upstream` and `Downstream`. Each tab will contain a list of tables from which data is inherited or consumed. This allows users view a table's lineage in a very simple manner.
+
+![Column Lineage Preview](assets/025/column-lineage-preview.png)
+
+Additionally we will add lineage information at the column level, viewable by expanding column metadata.
+
+These features will only appear when the lineage feature is enabled.
+
 ## Reference-level Explanation (aka Technical Details)
 ### Architecture
 
-![Lineage Stage 0 Architecture](assets/lineage_arch.png)
+![Lineage Stage 0 Architecture](assets/025/lineage-arch.png)
+
 Implementing this feature will require defining a Lienage API on the metadata service for Tables and Columns. When the API is called it will make calls to neo4j and whatever the source of lineage data is. An interface needs to be created to interact with an implementer's lineage service in a generic way. The data from the calls to these services will be put together to form the lineage response as defined below.
 
 ### Backend Implementation
@@ -63,7 +67,7 @@ will be executed and the lineage call will return a response:
       “table”: “table_key1”,
       “level”: 1,
       "source": “hive”,
-      “badges”: [“coco”, “beta”],
+      “badges”: [“core”, “beta”],
       “usage”: 234,
     },
     ...
