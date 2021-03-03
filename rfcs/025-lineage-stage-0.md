@@ -29,11 +29,11 @@ Those implementing Amundsen should keep in mind that this feature is meant to pr
 
 ## UI/UX-level Explanation
 
-![Table Lineage Preview](assets/025/table-lineage-preview.png)
+![Table Lineage Preview](../assets/025/table-lineage-preview.png)
 
 We will add two additional tabs to the `Table Details` page, `Upstream` and `Downstream`. Each tab will contain a list of tables from which data is inherited or consumed. This allows users view a table's lineage in a very simple manner.
 
-![Column Lineage Preview](assets/025/column-lineage-preview.png)
+![Column Lineage Preview](../assets/025/column-lineage-preview.png)
 
 Additionally we will add lineage information at the column level, viewable by expanding column metadata.
 
@@ -42,7 +42,7 @@ These features will only appear when the lineage feature is enabled.
 ## Reference-level Explanation (aka Technical Details)
 ### Architecture
 
-![Lineage Stage 0 Architecture](assets/025/lineage-arch.png)
+![Lineage Stage 0 Architecture](../assets/025/lineage-arch.png)
 
 Implementing this feature will require defining a Lienage API on the metadata service for Tables and Columns. When the API is called it will make calls to neo4j and whatever the source of lineage data is. An interface needs to be created to interact with an implementer's lineage service in a generic way. The data from the calls to these services will be put together to form the lineage response as defined below.
 
