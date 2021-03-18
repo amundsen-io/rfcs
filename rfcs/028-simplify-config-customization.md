@@ -157,7 +157,9 @@ print(t.__dict__)
 
 ## Drawbacks
 
-N/A
+- customization of options setting fuctom functions (AUTH_USER_METHOD REQUEST_HEADERS_METHOD INIT_CUSTOM_ROUTES):
+    - still requires custom file to be present in PATH
+    - would need to be explicitly handled by get_config_class
 
 ## Alternatives
 
