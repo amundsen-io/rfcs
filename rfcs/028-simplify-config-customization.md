@@ -175,7 +175,7 @@ N/A
 
 ## Unresolved questions
 
-N/A
+- can we push this even further to avoid custom config classes at all
 
 ## Future possibilities
 
