@@ -163,8 +163,11 @@ print(t.__dict__)
 
 ## Alternatives
 
+- Make every config option use os.getenv with default value
+    - pros: config will stay more flexible in terms of defining more complex variables (functions, dicts)
+    - cons: there is no centralization of parsing logic
+
 - Keep current approach forcing users to provide config files, mounting them and keeping in PATH.
-- Make every config option use os.getenv with default value (in my opinon it's worse since there is no centralization of parsing logic)
 
 ## Prior art
 
