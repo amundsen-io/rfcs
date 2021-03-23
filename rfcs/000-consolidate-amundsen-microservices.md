@@ -13,8 +13,13 @@ Following will be the repositories (and packages) of Amundsen after the change.
 - amundsen (frontend, metadata, search, and common repositories)
 - amundsendatabuilder (Same as today's databuilder repository)
 
-There will not be a separate `amundsenmetadatalibrary`, `amundsenfrontendlibrary`, `amundsensearchlibrary` or `amundsencommon` packages. 
-**No data will be lost from the database or search engine, as we will not be changing any models or data structure.** 
+There will not be a separate `amundsenmetadatalibrary`, `amundsenfrontendlibrary`, `amundsensearchlibrary` or `amundsencommon` packages.
+
+A few reasons why I am keeping the `amundsendatabuilder` out of the monorepo:
+- databuilder is a completely separate layer not directly related to the Amundsen project. If I am using Apache Atlas or GCP or any other such proxies, I'd not want to have databuilder code in my repo. 
+- databuilder is the only piece which will have a lot of integrations, so keeping it separate would reduce the noise from the actual amundesn repo/package. This will enable us to move really fast when introducing new integrations in databuilder.
+
+**No data will be lost from the database or search engine, as we will not be changing any models or data structure.**
 
 ## Motivation
 
