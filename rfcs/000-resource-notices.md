@@ -83,12 +83,19 @@ We think this proposal is a good starting point. It might be lacking in differen
 
 Out of scope and pending feedback for this stage will be:
 
-- A different way of storing the notices (JSON file, as part of the graph, UI fed)
+- A different way of storing the notices (as part of the graph, UI fed, API powered)
 - Multiple notifications at once and how we would limit those
 - Notifications in the User pages
 
 A proposed roadmap is:
 
-1. MVP: 1 non-dismissable notice per resource | notice data stored in ConfigUtils
-2. v1: up to 3 dismissible notices per resource shown, ranked by recency | notice data stored in neo4j
-3. v2: form for creating notices | access control so only owners or admins can add or remove notices on their resources from the UI
+1. MVP: 1 non-dismissable notice per resource | notice data stored in ConfigUtils (current implementation in this [PR](https://github.com/amundsen-io/amundsenfrontendlibrary/pull/957))
+
+2. v1: up to 3 dismissible notices per resource shown, ranked by severity and recency (or expiration date via TTL) | notice data stored in neo4j
+   Some use case examples for v1 are:
+
+- Dynamically recommending different tables (more like this feature or other users also queried)
+- Notifying about failed data quality checks
+- Notifying about maintenance on the tables (like it's being repartitioned and it will take X hours)
+
+3. v2: form and API for creating notices | access control so only owners or admins can add or remove notices on their resources from the UI
