@@ -1,6 +1,6 @@
 - Feature Name: Resource Notices
 - Start Date: 2021-03-22
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#29](https://github.com/amundsen-io/rfcs/pull/29) (after opening the RFC PR, update this with a link to it and update the file name)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Resource Notices
@@ -86,3 +86,9 @@ Out of scope and pending feedback for this stage will be:
 - A different way of storing the notices (JSON file, as part of the graph, UI fed)
 - Multiple notifications at once and how we would limit those
 - Notifications in the User pages
+
+A proposed roadmap is:
+
+1. MVP: 1 non-dismissable notice per resource | notice data stored in ConfigUtils
+2. v1: up to 3 dismissible notices per resource shown, ranked by recency | notice data stored in neo4j
+3. v2: form for creating notices | access control so only owners or admins can add or remove notices on their resources from the UI
