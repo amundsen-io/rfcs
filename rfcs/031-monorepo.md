@@ -7,12 +7,12 @@
 
 ## Summary
 
-At the moment, Amnundsen project is divided into 6 repositories: 
+At the moment, Amnundsen project is divided into 6 repositories:
 	- amundsen
 	- amundsenfrontendlibrary
 	- amundsenmetadatalibrary
 	- amundsensearchlibrary
-	- amundsencommon 
+	- amundsencommon
 	- amudnsendatabuilder
 
 This RFC proposes merging all of these repositories into a single repo.
@@ -22,9 +22,9 @@ There will be no change to the built artifacts. Users who use PyPi packages or D
 
 ## Motivation
 
-The submodule architecture creates the following issues and is making it hard for companies to adopt Amundsen, and to customize it accordingly. It also causes substantial developer toil in the form of having to create multiple small PRs to merge one 
+The submodule architecture creates the following issues and is making it hard for companies to adopt Amundsen, and to customize it accordingly. It also causes substantial developer toil in the form of having to create multiple small PRs to merge one
 
-1. Dependency Management: Python packages are pretty much the same for each proxy, which makes it hard to sync across all the above repositories. As a result most of the time, each proxy is running its own version of the dependency. 
+1. Dependency Management: Python packages are pretty much the same for each proxy, which makes it hard to sync across all the above repositories. As a result most of the time, each proxy is running its own version of the dependency.
 A few examples:
 
 | Package             | amundsenmetadata   | amundsenfrontend  |
@@ -39,7 +39,7 @@ and many more... This change will put all the packages in just one place, making
 
 1. Customization & Deployment: One of the frequently mentioned topics re Amundsen is the complexity of the architecture, and the efforts required to customize Amundsen. Having multiple repositories results in multiple components to install, customize, manage and fix. If you have forks, there is more work to apply your changes on a per-repo basis. Having a single repository to work from will reduce toil.
 
-1. Code Duplication: From requirements to config files, models, helper functions, exceptions handling, CI/CD pipelines, Docker files, and other repository management like licenses, PR/Issues templates, etc., is pretty much the same in all these microservices. Change in one repository deviates that repository from others at the moment. This change will move all the above into a single repository making it easy to change anything without keeping track of multiple repositories, and redundant code. 
+1. Code Duplication: From requirements to config files, models, helper functions, exceptions handling, CI/CD pipelines, Docker files, and other repository management like licenses, PR/Issues templates, etc., is pretty much the same in all these microservices. Change in one repository deviates that repository from others at the moment. This change will move all the above into a single repository making it easy to change anything without keeping track of multiple repositories, and redundant code.
 
 Having one repo doesn't preclude us having incubator repositories, they can be handled similarly as today.
 
@@ -72,7 +72,7 @@ We mark the `main` branch on GitHub as the main branch, so that new pulls use th
 
 
 ### Phase 5:
-After 1 year, we will remove all of the sub-repos, as well as the `master` branch on the Amundsen repository. 
+After 1 year, we will remove all of the sub-repos, as well as the `master` branch on the Amundsen repository.
 
 
 ## How We Communicate This
@@ -83,7 +83,9 @@ After 1 year, we will remove all of the sub-repos, as well as the `master` branc
 
 ## Drawbacks
 
-There is a transition cost both internally, and for certain users who do customizations. 
+There is a transition cost both internally, and for certain users who do customizations.
+
+Currently, it is possible for implementors who do code-level customization to keep different versions of the various microservices. This will make that challenging or impossible within a single repo.
 
 
 ## Alternatives
@@ -98,3 +100,5 @@ None, yet
 ## Future possibilities
 
 It may be desirable to make architectural changes after this code structure change is done, for example consolidating components or changing how shared dependencies are managed. However, we'd like to keep that out-of-scope for this RFC and keep those discussions separate (unless if it impacts this portion).
+
+We will also have the option to use [pip constraint files](https://pip.pypa.io/en/stable/user_guide/#constraints-files), which would likely help with the dependency issues we've encountered. This could be considered deeper and implemented as a PR after the transition occurs.
