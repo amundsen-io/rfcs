@@ -41,7 +41,17 @@ and many more... This change will put all the packages in just one place, making
 
 1. Code Duplication: From requirements to config files, models, helper functions, exceptions handling, CI/CD pipelines, Docker files, and other repository management like licenses, PR/Issues templates, etc., is pretty much the same in all these microservices. Change in one repository deviates that repository from others at the moment. This change will move all the above into a single repository making it easy to change anything without keeping track of multiple repositories, and redundant code.
 
-Having one repo doesn't preclude us having incubator repositories, they can be handled similarly as today.
+
+### Contrib/incubating packages
+
+From time-to-time, the Amundsen project creates third party packages to allow substantial new additions to be developed by non-maintainers. The monorepo per se doesn't preclude us having incubator repositories, they can be handled similarly as today.
+
+We currently have two approaches for proxy development:
+
+1. 'old' proxies like neo4j, elasticsearch or atlas are kept directly in amundsenmetadata and amundsensearch respectively
+1. 'new' proxies like rds or gremlin are separate git repositories.
+
+Our intention in the monorepo would be to keep incubating repos separate only until they are stable, upon which they should be merged into the main repo. Any officially-supported proxies should get CR by maintainers, not exist outside of that process.
 
 
 ## Transition Path
@@ -55,6 +65,8 @@ We create a new branch on the `amundsen` repo, named `main`. All work that follo
 Raw code import and CI. We import all of the code as a snapshot into the repository.
 
 At this point, we migrate the CI/CD pipeline, and automated release mechanisms, from the consituent repositories to the main repository. They will publish packages using a `-beta` postfix.
+
+We will merge the codeowners files at the same time here.
 
 ### Phase 3:
 We freeze code in all the submodules: no new PRs in. Existing PRs will have 1 week to land. We will assist authors in getting nearly-mergable PRs landed. For PRs that don't make it, we will provide instructions to port their patches to the new repo, if they choose to re-submit.
@@ -73,7 +85,6 @@ We mark the `main` branch on GitHub as the main branch, so that new pulls use th
 
 ### Phase 5:
 After 1 year, we will remove all of the sub-repos, as well as the `master` branch on the Amundsen repository.
-
 
 ## How We Communicate This
 
