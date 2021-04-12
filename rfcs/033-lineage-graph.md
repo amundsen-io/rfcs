@@ -17,8 +17,8 @@ This will replace the existing `Upstream` and `Downstream` tabs on the table det
 
 > Why are we doing this? What use cases does it support? What is the expected outcome?
 
-A map graph UI can more fully, transparently, and frictionlessly convey the lineage information. By co-locating data from multiple sources, Amundsen is positioned to create a better map graph UI experience vs. competitors. 
-v0 of lineage is already available in the Amundsen project today in the form of a list. 
+A map graph UI can more fully, transparently, and frictionlessly convey the lineage information. By co-locating data from multiple sources, Amundsen is positioned to create a better map graph UI experience vs. competitors.
+v0 of lineage is already available in the Amundsen project today in the form of a list.
 
 ## Guide-level Explanation (aka Product Details)
 
@@ -37,25 +37,29 @@ Since this is a UI/UX feature, more details about the implementation in the next
 > Explain the UI changes that your proposal would need (if applicable). This could mean:
 
 The feature will be disabled by default and can be enabled via a configuration flag. (This is how Amundsen enables/disables lineage today)
-Once enabled, 
+Once enabled,
+
 - a new CTA/Button will appear on the top right of the table detail page.
 - a new icon in front of the column name (to support column-level lineage).
 
-Clicking on any of the above will navigate the user to a new page displaying lineage graph along with the filters to select the `level` and `direction` for the graph. 
+Clicking on any of the above will navigate the user to a new page displaying lineage graph along with the filters to select the `level` and `direction` for the graph.
 
-The sidebar will have the filters available and will be used for other interactions like displaying a complete list of nodes, and/or view the metadata of a selected node. 
+The sidebar will have the filters available and will be used for other interactions like displaying a complete list of nodes, and/or view the metadata of a selected node.
 
 Interaction Details:
+
 - By default, we will display 1 level (or depth) of the lineage. Users will be able to control the level by clicking Expand/Collapse via each node. Or simply use the filter to change the number of levels shown.
 - User will be able to Pane and Zoom, and also reset the whole graph.
-- Clicking any node will display the metadata details of that particular node in the sidebar. 
+- Clicking any node will display the metadata details of that particular node in the sidebar.
 
-Important to note: We will not display the complete list of upstream/downstream tables. We will only display X number of tables by default based on their usage and will control the number by a config flag. 
+Important to note: We will not display the complete list of upstream/downstream tables. We will only display X number of tables by default based on their usage and will control the number by a config flag.
+
+See the Screenshots in [this folder](https://github.com/amundsen-io/rfcs/tree/98c240d29d8644a81b4eaf6a1481a126d08b5732/assets/033).
 
 ## Reference-level Explanation (aka Technical Details)
 
-This does not change anything on the backend and uses the existing endpoints exposed in the v0 of lineage. 
-All the UI/UX explanations mentioned in the above section. 
+This does not change anything on the backend and uses the existing endpoints exposed in the v0 of lineage.
+All the UI/UX explanations mentioned in the above section.
 
 ## Drawbacks
 
