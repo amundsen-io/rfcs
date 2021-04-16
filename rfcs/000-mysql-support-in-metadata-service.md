@@ -1,6 +1,6 @@
 - Feature Name: Support MySQL as the metadata backend in metadata service
 - Start Date: 2021-04-16
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#34](https://github.com/amundsen-io/rfcs/pull/34) 
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Support mysql as the metadata backend in metadata service
