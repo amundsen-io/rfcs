@@ -54,12 +54,14 @@ Interaction Details:
 
 Important to note: We will not display the complete list of upstream/downstream tables. We will only display X number of tables by default based on their usage and will control the number by a config flag.
 
-See the Screenshots in [this folder](https://github.com/amundsen-io/rfcs/tree/98c240d29d8644a81b4eaf6a1481a126d08b5732/assets/033).
+See the Screenshots in [this folder](https://github.com/amundsen-io/rfcs/tree/lineage-graph/assets/033).
 
 ## Reference-level Explanation (aka Technical Details)
 
-This does not change anything on the backend and uses the existing endpoints exposed in the v0 of lineage.
 All the UI/UX explanations mentioned in the above section.
+
+This will change the lineage backend endpoints to include extra querystring parameter(s) for the filtering, 
+like `nodes_per_level (Shows the top X by usage)`. The rest of the endpoints will remain the same, with no change in the logic. 
 
 ## Drawbacks
 
