@@ -30,7 +30,7 @@ Some changes do not require an RFC:
 - Changes noticeable only by contributors or maintainers
 - Recent examples are:
   - Adding programmatic descriptions
-  - Adding support for tags at a column level
+  - Adding support for badges at a column level
 
 If you submit a pull request to implement a new feature without going through the RFC process, it may be closed with a polite request to send an RFC first. That said, if most of the work is done, we will accelerate the process.
 
