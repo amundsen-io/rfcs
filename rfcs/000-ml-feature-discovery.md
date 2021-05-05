@@ -58,8 +58,23 @@ Metadata that describes qualities of the data in this feature.
 
 
 ## UI/UX-level Explanation
+_**Note:** The pink text is only visible in the mocks to call out design details and changes._
+### Home Page
+![Table Lineage Preview](../assets/036/home-page.png)
+##### Expanded Search Bar
+![Table Lineage Preview](../assets/036/home-page-expanded.png)
+### Advanced Search Page
+![Table Lineage Preview](../assets/036/adv-search.png)
 
-> TODO waiting on finalized design
+### Feature Details Page
+##### Sample Tab
+![Table Lineage Preview](../assets/036/sample-tab.png)
+##### Statistics Tab
+![Table Lineage Preview](../assets/036/stats-tab.png)
+##### Upstream Tab
+![Table Lineage Preview](../assets/036/upstream-tab.png)
+##### Generation Code Tab
+![Table Lineage Preview](../assets/036/generation-tab.png)
 
 ## Reference-level Explanation (aka Technical Details)
 
@@ -113,7 +128,7 @@ class Feature:
    badges: List[Badge]
    owner_tags: Optional[List[Tag]] # non editable
    tags: List[Tag] # editable
-   generating_code: Optional[Query]  # reuse Query entity from Dashboards
+   generation_code: Optional[Query]  # reuse Query entity from Dashboards
    programmatic_descriptions: List[ProgrammaticDescription] 
    watermarks: List[Watermark]  # date range
    stats: List[Stat]
