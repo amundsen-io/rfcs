@@ -29,7 +29,6 @@ Integration of ML projects in Amundsen has been heavily requested by the communi
 ### New Metadata Definitions
 #### Semantic Metadata
 Metadata related to the feature itself.
-- Feature: an indepe ndent variable used as input for an ML model
 - Key: what makes a feature uniquely identifiable is the group, name and version. We don’t use db/source because the same feature can exists in different places (like hive and dynamo)
     - ex: test_feature_group_name/test_feature_name/1.2.0
 - Availability/sources: list of places where feature is available
