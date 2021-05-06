@@ -76,9 +76,7 @@ like `nodes_per_level (Shows the top X by usage)`. The rest of the endpoints wil
 
 ## Alternatives
 
-> Why is this design the best in the space of possible designs?
-> What other designs have been considered and what is the rationale for not choosing them?
-> What is the impact of not doing this?
+- Keep the list based approach we currently have, showing only one level. This is a suboptimal way of representing this kind of data and transfers the burden to users, that will shortly grow tired of bouncing from page to page to have a good view of where data is coming.
 
 ## Prior art
 
