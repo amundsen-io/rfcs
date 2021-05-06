@@ -11,20 +11,9 @@ Amundsen currently indexes a few first-class entities, however we currently do n
 
 ## Motivation
 
-> Why are we doing this? What use cases does it support? What is the expected outcome?
-
 Integration of ML projects in Amundsen has been heavily requested by the community and has already been implemented by other similar projects. This RFC outlines what will be the first step towards indexing ML projects in Amundsen since feature engineering is one of the most time consuming processes for ML engineers. Providing them with the ability to easily discover features that they can reuse for their models will significatly increase their productivity.
 
 ## Guide-level Explanation (aka Product Details)
-
-> Explain the proposal as if it was already included in Amundsen and you were teaching it to an Amundsen user. That generally means:
-
-> Introducing new named concepts.
-> Explaining the feature largely in terms of examples.
-> Explaining how Amundsen users should think about the feature, and how it should impact the way they use Amundsen. It should explain the impact as concretely as possible.
-> If applicable, provide deprecation warnings, or migration guidance.
-> For implementation-oriented RFCs, this section should focus on how maintainers should think about the change, and give examples of its concrete impact. For policy RFCs, this section should provide an example-driven introduction to the policy, and explain its impact in concrete terms.
-- In the future this feature will hopefully replace all use of old Tag badges.
 
 ### New Metadata Definitions
 #### Semantic Metadata
