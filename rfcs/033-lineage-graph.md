@@ -11,7 +11,7 @@ This is the next in the series of https://github.com/amundsen-io/rfcs/pull/25
 
 Implement a navigable canvas-based graph visualization for lineage. Lineage is traditionally represented this way, suboptimally, in the various existing tools like CompilerWorks, Castor, Apache Atlas, etc.
 
-This will replace the existing `Upstream` and `Downstream` tabs on the table detail page, and introduce a new CTA "Lineage" on the table detail page.
+This will eventually replace the existing `Upstream` and `Downstream` tabs on the table detail page (once completely implemented and verified), and introduce a new CTA "Lineage" on the table detail page.
 
 ## Motivation
 
@@ -61,7 +61,48 @@ See the Screenshots in [this folder](https://github.com/amundsen-io/rfcs/tree/li
 All the UI/UX explanations mentioned in the above section.
 
 This will change the lineage backend endpoints to include extra querystring parameter(s) for the filtering, 
-like `nodes_per_level (Shows the top X by usage)`. The rest of the endpoints will remain the same, with no change in the logic. 
+like `nodes_per_level (Shows the top X by usage)`. The rest of the endpoints will remain the same, with no change in the logic.
+
+We'll use d3.js (svg) for this implementation, and leverage the d3 hierarchy and tree structures to draw the upstream and downstream nodes.
+
+The implementation will be in phases, and we'll keep the "beta" tag for the feature unless the feature is completely implemented. 
+In the meantime, we are planning to keep the list based view in place and slightly change the frontend configuration to accommodate External Lineage Links, Tab Based Lineage and Graph Based lineage.
+
+from this:
+```javascript
+ tableLineage: {
+   iconPath: 'PATH_TO_ICON',
+   isBeta: false,
+   isEnabled: false,
+   urlGenerator: (
+     database: string,
+     cluster: string,
+     schema: string,
+     table: string
+   ) =>
+     `https://DEFAULT_LINEAGE_URL?schema=${schema}&cluster=${cluster}&db=${database}&table=${table}`,
+   inAppListEnabled: true
+ }
+```
+
+to this:
+```javascript
+  tableLineage: {
+    iconPath: 'PATH_TO_ICON',
+    isBeta: false,
+    isEnabled: true,
+    urlGenerator: (
+      database: string,
+      cluster: string,
+      schema: string,
+      table: string
+    ) =>
+      `https://DEFAULT_LINEAGE_URL?schema=${schema}&cluster=${cluster}&db=${database}&table=${table}`,
+    externalEnabled: false,
+    inAppListEnabled: true,
+    inAppPageEnabled: true
+  },
+```
 
 ## Drawbacks
 
