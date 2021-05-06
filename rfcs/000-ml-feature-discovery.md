@@ -137,7 +137,7 @@ class FeatureSummary:
 The features API methods will basically be identical to that for tables, but the response will follow the outline of the common schema specified above.
 #### Requests
 - GET feature details
-- GET feature upstream lineage, leverage CompilerWorks lineage functionality
+- GET feature upstream lineage
 - PUT/DELETE owners
 - GET/PUT description
 - PUT/DELETE tags
