@@ -80,13 +80,9 @@ like `nodes_per_level (Shows the top X by usage)`. The rest of the endpoints wil
 
 ## Prior art
 
-> Discuss prior art, both the good and the bad, in relation to this proposal. A few examples of what this can include are:
+At Amundsen, we have the list based lineage that, as commented before, is a suboptimal way of showing this data.
 
-> Does this feature exist in other data search applications and what experience have their community had?
-> For community proposals: Is this done by some other community and what were their experiences with it?
-> Papers: Are there any published papers or great posts that discuss this? If you have some relevant papers to refer to, this can serve as a more detailed theoretical background.
-
-> This section is intended to encourage you as an author to think about the lessons from other projects, provide readers of your RFC with a fuller picture. If there is no prior art, that is fine - your ideas are interesting to us whether they are brand new or if it is an adaptation from other projects.
+We have seen this types of graphs on applications like DataHub, CompilerWorks and similar, so even if they don't   do a great job at it, it is clear that a graph is the right way of showing this information.
 
 ## Unresolved questions
 
