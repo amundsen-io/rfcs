@@ -1,6 +1,6 @@
 - Feature Name: ml_feature_discovery
 - Start Date: 2021-05-05
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#36](https://github.com/amundsen-io/rfcs/pull/36) (after opening the RFC PR, update this with a link to it and update the file name)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # ML Features Discovery in Amundsen
