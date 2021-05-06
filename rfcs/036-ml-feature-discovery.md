@@ -132,6 +132,8 @@ class FeatureSummary:
    availability: List[str]
    entity: Optional[List[str]]
    description: Optional[str]
+   badges: List[Badge]
+   last_updated_timestamp: Optional[int]
 ```
 ### Amundsen Metadata
 The features API methods will basically be identical to that for tables, but the response will follow the outline of the common schema specified above.
