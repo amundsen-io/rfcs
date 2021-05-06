@@ -148,7 +148,30 @@ The features API methods will basically be identical to that for tables, but the
 - Implement functionality in neo4j proxy
 
 ### Amundsen Search
-> TODO
+The search service will get a new Feature entity model. To support filtered search (on Entity, Feature Group, Feature Name, Tag, and Badge) we will index the following attributes:
+```
+   id: str (will use key as the document id)
+   name: str
+   version: str
+   status: str
+   feature_group: str
+   entity: Optional[List[str]]
+   availability: List[str]
+   description: Optional[str]
+   badges: List[str]
+   tags: Optional[List[str]]  (note, owner and user tags are indexed in one field)
+   programmatic_descriptions: List[str] 
+   last_updated_timestamp: Optional[int]
+   total_usage: int
+```
+We will modify create/delete/update document endpoints to work with the new Feature index and implement new endpoints for:
+
+- /search_feature
+- /search_feature_filter
+
+The field_value_factor will be based on total_usage, following what is done for Tables.
+**Note:** Our plan is to only implement Feature search in ES and skip Atlas for now. Atlas also does not currently implement User or Dashboard search. 
+
 
 ## Drawbacks
 
