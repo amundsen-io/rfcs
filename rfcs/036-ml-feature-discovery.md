@@ -122,7 +122,7 @@ class Feature:
    watermarks: List[Watermark]  # date range
    stats: List[Stat]
    last_updated_timestamp: Optional[int]
-   created_timestamp: int
+   created_timestamp: Optional[int]
    partition_column: Optional[Column]
  
 class FeatureSummary:
