@@ -74,6 +74,7 @@ pip3 install ".[all]"
 10. In CI/CD apart from `make install` do also `pip3 uninstall amundsen-common && pip3 install ../common` (apart from common subdirectory which would not re-install ../common)
 
 ### Testing
+
 We test this with `make test` on each subproject + building Amundsen locally and testing functionalities manually relying on test data
 
 ## How We Communicate This
@@ -106,8 +107,8 @@ We test this with `make test` on each subproject + building Amundsen locally and
 
 ## Unresolved questions
 
-- Should we scope all subdirectories with that change or would we be ok excluding some (maybe common and databuilder)
+- Should we scope all subdirectories with that change or would we be ok excluding some and focusing on microservices only (for `requirements-common.txt`)
 
 ## Future possibilities
 
-n/a
+- Easier upgrade possibilities (for example bumping to Flask 2+)
