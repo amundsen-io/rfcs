@@ -49,6 +49,7 @@ Multiple times you might find the term `subdirectory`, which refers to following
 
 Steps:
 
+0. Undertake new approach where all dependencies land in `install_requires` or `extras_require` through reading in appropriate requirements* files (except databuilder due to it's complexity)
 1. Split `requirements.txt` for each subdirectory into `requirements.txt` and `requirements-dev.txt` (there is no need to install flake8 when doing for example `pip install amundsen-metadata` which is currently the case)
 2. Identify libraries that are shared across all (or majority - see `Drawbacks`) of subprojects
 3. Create `requiremnts-common.txt` file in root folder of amundsen repo containing pinned dependencies for shared libraries
