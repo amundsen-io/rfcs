@@ -88,7 +88,7 @@ We test this with `make test` on each subproject + building Amundsen locally and
 - There are dependencies that are shared by some but not all libraries. For those we have two choices:
     - Include them in `requirements-common.txt` (preferred by the author) - this will make some packages contain deps that are not used
     - Populate `requirements-common.txt` only with deps used by all packages - this will still leave a lot of room for inconsistencies
-- It might be difficult to keep the dependencies balanced especially if some custom entry in `requirements.txt` requires different version of lib `requirements-common.txt`
+- It might be difficult to keep the dependencies balanced especially if some custom entry in one of subdirs `requirements.txt` requires different version of lib from `requirements-common.txt`
 
 ## Alternatives
 
