@@ -106,7 +106,7 @@ We test this with `make test` on each subproject + building Amundsen locally and
 
 ## Unresolved questions
 
-n/a
+- Should we scope all subdirectories with that change or would we be ok excluding some (maybe common and databuilder)
 
 ## Future possibilities
 
