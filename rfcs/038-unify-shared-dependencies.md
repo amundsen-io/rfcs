@@ -28,6 +28,11 @@ A few examples:
 and many more... This change will put all the packages in just one place, making practically to keep dependencies similar accross verisons, simply because it will be possible to open a single PR that updates multiple packages. Practically speaking this will improve the status quo slightly.
 ```
 
+Most common pain-points so far:
+
+- mismatch between version of amundsen-common in frontend/metadata/search
+- mismatch between version of marshmallow in frontend/metadata/search 
+
 ## Guide-level Explanation (aka Product Details)
 
 n/a
@@ -69,9 +74,9 @@ Where:
     - `requirements_dev` - requirements-dev.txt /symlink/ from project root)
 10. Introduce `install_deps` action in Makefile to be used by users/in cicd, doing:
 ```python
-pip3 install ".[all]"
+pip3 install -e ".[all]"
 ```
-10. In CI/CD apart from `make install` do also `pip3 uninstall amundsen-common && pip3 install ../common` (apart from common subdirectory which would not re-install ../common)
+10. In CI/CD apart from `make install_deps` do also `pip3 uninstall amundsen-common && pip3 install ../common` (apart from common subdirectory which would not re-install `../common`)
 
 ### Testing
 
@@ -90,7 +95,8 @@ We test this with `make test` on each subproject + building Amundsen locally and
 - There are dependencies that are shared by some but not all libraries. For those we have two choices:
     - Include them in `requirements-common.txt` (preferred by the author) - this will make some packages contain deps that are not used
     - Populate `requirements-common.txt` only with deps used by all packages - this will still leave a lot of room for inconsistencies
-- It might be difficult to keep the dependencies balanced especially if some custom entry in one of subdirs `requirements.txt` requires different version of lib from `requirements-common.txt`
+- It might be difficult to keep the dependencies balanced especially if some custom entry in one of subdirs `requirements.txt` requires different version of lib from `requirements-common.txt` (should be a low risk)
+- Local installation requires mandatory `-e` flag when doing `pip install .` (might be solved by thoroughly communicating/documenting the change)
 
 ## Alternatives
 
