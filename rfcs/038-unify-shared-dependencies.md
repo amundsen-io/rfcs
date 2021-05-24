@@ -1,6 +1,6 @@
 - Feature Name: Unify shared dependencies
 - Start Date: 2021-05-22
-- RFC PR: [amundsen-io/rfcs#38](https://github.com/amundsen-io/rfcs/pull/38) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#38](https://github.com/amundsen-io/rfcs/pull/38)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Unify shared dependencies
