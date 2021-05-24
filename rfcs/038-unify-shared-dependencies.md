@@ -76,7 +76,12 @@ Where:
 ```python
 pip3 install -e ".[all]"
 ```
-10. In CI/CD apart from `make install_deps` do also `pip3 uninstall amundsen-common && pip3 install ../common` (apart from common subdirectory which would not re-install `../common`)
+11. In CI/CD apart from `make install_deps` do also `pip3 uninstall amundsen-common && pip3 install ../common` (apart from common subdirectory which would not re-install `../common`)
+
+### Exclusions
+
+Due to the complexity of databuilder installation we will not fully cover it with this change:
+- we skip `requirements-common.txt` sharing for databuilder (`requirements-dev.txt` however, will be shared)
 
 ### Testing
 
@@ -113,7 +118,7 @@ We test this with `make test` on each subproject + building Amundsen locally and
 
 ## Unresolved questions
 
-- Should we scope all subdirectories with that change or would we be ok excluding some and focusing on microservices only (for `requirements-common.txt`)
+- n/a
 
 ## Future possibilities
 
