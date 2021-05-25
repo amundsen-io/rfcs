@@ -15,10 +15,11 @@ between the nodes.
 
 The double relationship graph model makes Neo4j queries more complicated
 than they need to be, with no performance or functional benefit. Additionally
-due to conflicting changes in the past (PR 70 and PR 206), Amundsen instances
-that have been running and ingesting data since prior to PR 70 or PR 206 have
-inconsistent Neo4j database state. Some nodes have a single relationship between
-then, some have two.
+due to conflicting changes in the past ([PR 70](https://github.com/amundsen-io/amundsenmetadatalibrary/pull/70)
+and [PR 206](https://github.com/amundsen-io/amundsenmetadatalibrary/pull/206)),
+Amundsen instances that have been running and ingesting data since prior to
+PR 70 or PR 206 have inconsistent Neo4j database state. Some nodes have a
+single relationship between then, some have two.
 
 There are two relevant Slack discussions regarding this change:
 
