@@ -25,6 +25,7 @@ There are two relevant Slack discussions regarding this change:
 
 https://app.slack.com/client/TGFR0CZM3/CGFBVT23V/thread/CGFBVT23V-1615391140.022900
 - a thread where I asked the question on why the double relationships exist
+
 https://app.slack.com/client/TGFR0CZM3/CGFBVT23V/thread/CGFBVT23V-1563487877.254000
 - a thread with Joshua Haskins' benchmarking results for modeling the relationships
   with one or two edges
