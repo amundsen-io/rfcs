@@ -97,7 +97,8 @@ we've decided to keep.
 
 Create a database migration script that deletes the relationship types we've
 decided to remove from the Neo4j database, and change the direction of any
-relationship we've decided to keep, if needed.
+relationship we've decided to keep, if needed. Additionally the database migration
+script should correct the inconsistent data issues created in PR 70.
 
 There is no transition path for new installations. They will simply start using
 the single relationships graph model from the get go.
