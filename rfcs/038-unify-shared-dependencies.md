@@ -124,3 +124,4 @@ We test this with `make test` on each subproject + building Amundsen locally and
 
 - Easier upgrade possibilities (for example bumping to Flask 2+)
 - Easier transition into shared QA approach (like introducing pre-commit)
+- Shifting more shared code to amundsen common (like models)
