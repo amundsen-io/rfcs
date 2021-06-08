@@ -59,16 +59,18 @@ In short, to get a major feature added to Amundsen, one must first get the RFC m
 1. Build consensus and integrate feedback, especially among the [sub-team](sub-teams) responsible. RFCs with broad support are much more likely to make progress than those that don't receive any comments.
 1. RFCs rarely go through this process unchanged, especially as alternatives and drawbacks are shown. You can make edits, big and small, to the RFC to clarify or change the design, but make changes as new commits to the pull request, and leave a comment on the pull request explaining your changes. Specifically, do not squash or rebase commits after they are visible on the pull request.
 1. RFCs that are candidates for inclusion in Amundsen will enter a **"Final Comment Period (FCP)"**, along with a disposition for the RFC (merge, close, or postpone).
-    - This step is taken **when enough of the tradeoffs have been discussed** so that the maintainers are in a position to make a decision. That does not require consensus amongst all participants in the RFC thread. However, the argument supporting the disposition on the RFC needs to have already been clearly articulated. There should not be a strong consensus against that position outside of the maintainer's group.
-    - The FCP period lasts **seven days**, and the beginning of this period will be signaled with a comment and tag on the RFC's pull request.
-    - For RFCs with lengthy discussion, the motion to FCP is usually preceded by a summary comment trying to lay out the current state of the discussion and major tradeoffs/points of disagreement.
-    - Maintainers will ping the `#amundsen` channel about the RFC to attract the community's attention.
-    - An RFC can be modified based upon feedback from the team and community. Significant modifications may trigger a new final comment period.
-    - RFC must be approved by at least one maintainer, with no -1 on it, in order to start working on it.
-    - If consensus is not reached through discussion on an RFC, then we must gain maintainers' approval in the form of a vote, with a voting time of 48 hours. Min required votes for Approval/Rejection of an RFC will be 80% of the total votes.    
+   - This step is taken **when enough of the tradeoffs have been discussed** so that the maintainers are in a position to make a decision. That does not require consensus amongst all participants in the RFC thread. However, the argument supporting the disposition on the RFC needs to have already been clearly articulated. There should not be a strong consensus against that position outside of the maintainer's group.
+   - The FCP period lasts **seven days**, and the beginning of this period will be signaled with a comment and tag on the RFC's pull request.
+   - For RFCs with lengthy discussion, the motion to FCP is usually preceded by a summary comment trying to lay out the current state of the discussion and major tradeoffs/points of disagreement.
+   - Maintainers will ping the `#amundsen` channel about the RFC to attract the community's attention.
+   - In case the RFC contains a UX/UI change, the RFC champion will reach out to any available Design resource to see if we can get some help on the visuals.
+   - An RFC can be modified based upon feedback from the team and community. Significant modifications may trigger a new final comment period.
+   - RFC must be approved by at least one maintainer, with no -1 on it, in order to start working on it.
+   - If consensus is not reached through discussion on an RFC, then we must gain maintainers' approval in the form of a vote, with a voting time of 48 hours. Min required votes for Approval/Rejection of an RFC will be 80% of the total votes.
 1. An RFC may be rejected by the team after the public discussion has been settled and comments have been made to summarize the rationale for rejection. The RFC Champion should then close the RFCs associated pull request. Also, an RFC author may withdraw their RFC by closing it themselves.
 1. An RFC may be accepted at the close of its final comment period. The RFC Champion will merge the RFCs associated pull request, at which point the RFC will become 'active'.
 1. Maintainers will meet every six months and choose three or five active RFCs based on popularity and alignment with project vision and goals. Those selected items become part of the Mid-term goals on our roadmap.
+
 ## The RFC life-cycle
 
 An RFC goes through the following stages:
