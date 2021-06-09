@@ -27,8 +27,7 @@
 
 > Explain the UI changes that your proposal would need (if applicable). This could mean:
 
-> Provide a high level diagram or wireframe about the change.
-> If applicable, suggest error, empty and loading states for the change.
+> Provide at least a low-fidelity wireframe of the change.
 
 ## Reference-level Explanation (aka Technical Details)
 
