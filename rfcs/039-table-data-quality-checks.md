@@ -26,20 +26,36 @@ a message and icon for the current status of these checks, if they exist. A pass
 the last run timestamp, and a link to the external data quality service, if available.
 
 ## UX Explanation
+A new section will be added to the left side of the Table Details Page.
+
 ![Data Quality Preview](../assets/039/data_quality.png)
 
 ## Technical Details
+Table Data Quality Checks will be implemented as an optional feature on Amundsen Frontend. This feature will be hidden 
+behind a config flag and will use a generic client much like the existing data preview client. The generic client should
+implement the following interface: 
 
+```
+def get_table_quality_checks(self, *, table_key: str):
 
-like `num_checks_success`, `num_checks_failed`, and `external_url`.
-
+Response:  
+{
+  num_checks_total: Int;
+  num_checks_success: Int;
+  num_checks_failed: Int;
+  external_url: Optional[Str];
+  last_run_timestamp: Optional[Int];
+}
+```
 
 ## Drawbacks
+This can be seen as a somewhat shallow integration that doesn't allow for some deeper integrations. Granted that we are
+trying to support a generic model, it's difficult to support a deeper integration given that we are not endorsing a 
+data quality service provider.
 
 ## Alternatives
-
-## Prior Art
-
-## Unresolved Questions
-
-## Future Possibilities
+There are several alternatives: 
+  - Ingest data quality checks as part of the databuilder and display the status as part of the table metadata API. 
+The displayed status in this case may be stale.
+  - We could build data quality checks as an Amundsen service and provide a much deeper level of service, but this 
+is not really Amundsen's primary purpose.
