@@ -27,7 +27,7 @@ There will be no impact to existing programmatic descriptions. They will remain 
 
 ## UI/UX-level Explanation
 
-Editable programmatic descriptions would be displayed alongside programmatic descriptions in the same way they are displayed today. They will be rendered as markdown, located in one of three sections (left, right, other) in the page and sorted according to display_order.
+Editable programmatic descriptions would be displayed alongside programmatic descriptions in the same way they are displayed today. They will be rendered as markdown, located in one of three sections (left, right, other) in the page and sorted the same as programmatic descriptions are sorted today.
 
 There are two differences between editable and non-editable programmatic descriptions:
 1. They are editable (if the table is editable)
