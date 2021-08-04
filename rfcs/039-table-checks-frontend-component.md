@@ -1,12 +1,12 @@
 - Feature Name: table_data_quality_checks
 - Start Date: 2021-07-16
-- RFC PR: [amundsen-io/rfcs#XX](https://github.com/amundsen-io/rfcs/pull/XX)
-# Table Data Quality Checks
+- RFC PR: [amundsen-io/rfcs#39](https://github.com/amundsen-io/rfcs/pull/41)
+# Table Checks Frontend Component
 
 ## Summary
-This RFC will define a generic interface for accessing data quality checks in Amundsen. If available, we aim to expose
-the status of these data quality checks in the Amundsen Table Details page.
-
+This RFC proposes a simple frontend component to display data quality checks on the table details page.
+The APIs and models that back this component will be stubbed. This proposal is not a full-fledged integration with 
+data quality checks.
 
 ## Terms
 - Data Quality Check - Like unit tests for code, data quality checks are assertions that try to guarantee certain 
@@ -18,6 +18,8 @@ the status of these data quality checks in the Amundsen Table Details page.
 While Amundsen is not currently building unit tests for data, we can empower our users by allowing integrations 
 with a generic external data quality service. Exposing the status of data quality checks in Amundsen can give users 
 an at-a-glance summary of the table's quality. This can help a user to quickly decide if they want to use this table.
+
+While we would like to eventually incorporate Data Quality Checks as a first-class  
 
 ## Product Details
 Users will see a new section on the left panel of the Table Details page titled `Data Quality Checks`. There will be
@@ -32,13 +34,11 @@ A new section will be added to the left side of the Table Details Page.
 
 ## Technical Details
 Table Data Quality Checks will be implemented as an optional feature on Amundsen Frontend. This feature will be hidden 
-behind a config flag and will use a generic client much like the existing data preview client. The generic client should
-implement the following interface: 
-
-```
-def get_table_quality_checks(self, *, table_key: str):
-
-Response:  
+behind a config flag and will use a generic client much like the existing data preview client. The frontend will define
+a placeholder API `/api/quality/v0/table` but will not implement it.
+ 
+The frontend will expect a response that includes the following:
+```  
 {
   num_checks_total: Int;
   num_checks_success: Int;
@@ -49,9 +49,8 @@ Response:
 ```
 
 ## Drawbacks
-This can be seen as a somewhat shallow integration that doesn't allow for some deeper integrations. Granted that we are
-trying to support a generic model, it's difficult to support a deeper integration given that we are not endorsing a 
-data quality service provider.
+Granted that we are trying to support a generic model, it's difficult to support a deeper integration given that we 
+are not endorsing a data quality service provider.
 
 ## Alternatives
 There are several alternatives: 
