@@ -97,10 +97,10 @@ Allows for misspellings by specifying a maximum edit distance. See [docs](https:
 This will require tuning and validation, but some users may get significant mileage from a hand-generated synonyms dictionary file. 
 We could provide a facility for specifying such a file. [Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-synonym-graph-tokenfilter.html).
 
-#### Match Phrase Query
+##### Match Phrase Query
 In case someone searches for a phrase out of an entity description, this subquery will take word order into consideration. [Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase.html).
 
-#### Index Fields in More Ways
+##### Index Fields in More Ways
 Experimenting with multiple analyzers (i.e. independently analyzing an input field via multiple analyzers) has potential benefits like normalizing stemmings and filtering stop words. 
 See [multi-field](https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html#multi-fields) about how to index a field in multiple ways, [english](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html#english-analyzer) analyzer for stemmings and stop word removal.
 Amundsen already does this to index some fields both as an unanalyzed `keyword` and as analyzed `text`.
