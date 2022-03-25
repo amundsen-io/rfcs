@@ -1,6 +1,6 @@
 - Feature Name: Nested columns
 - Start Date: 2022-03-24
-- RFC PR: [amundsen-io/rfcs#0000](https://github.com/amundsen-io/rfcs/pull/0000) (after opening the RFC PR, update this with a link to it and update the file name)
+- RFC PR: [amundsen-io/rfcs#047](https://github.com/amundsen-io/rfcs/pull/47) (after opening the RFC PR, update this with a link to it and update the file name)
 - Amundsen Issue: [amundsen-io/amundsen#0000](https://github.com/amundsen-io/amundsen/issues/0000) (leave this empty for now)
 
 # Nested columns
@@ -16,7 +16,7 @@ We look to improve how we display nested columns in Amundsen, by iterating on ou
 
 ## Motivation
 
-As we look to add more metadata (such as description and stats) for nested columns, the ⌄ icon to expand column details will clash with current use of ↳ icon next to it, making the indentation for hierarchy hard to read and crowding the control area. (See more rationale for overall layout and interaction changes in the [Column details access and side panels RFC](./000-column-details-access-and-side-panels.md))
+As we look to add more metadata (such as description and stats) for nested columns, the ⌄ icon to expand column details will clash with current use of ↳ icon next to it, making the indentation for hierarchy hard to read and crowding the control area. (See more rationale for overall layout and interaction changes in the [Column details access and side panels RFC](./046-column-details-access-and-side-panels.md))
 
 Also, always showing all nested columns can make the list too long to scroll through.
 
@@ -43,33 +43,33 @@ The hierarchy of nested objects without named fields (e.g. Array and Map) are no
 
 ### Expand/collapse all + each level drill down
 
-![Default all expanded view](../assets/000-1/default-all-expanded-view.png)
+![Default all expanded view](../assets/047/default-all-expanded-view.png)
 
 * As default, all nested columns will be expanded, showing the option for user to ‘Collapse all nested’
-* For most complex tables, this default behavior should still load fine, but in the edge case that there are prohibitively many columns to render (threshold will likely be ~1000), we may need to start with an all collapsed view for performance reasons.
+* For most complex tables, this default behavior should still load fine, but in the edge case that there are prohibitively many columns to render (threshold will likely be ~1046), we may need to start with an all collapsed view for performance reasons.
 * Any nested columns (except for the top-level/parent column) will be a darker color to recede into the background, which can help users distinguish when quickly scanning the list.
 * The table header will be stick to the top at all times so users can always tell what the columns are as they scroll.
 
 
 
-![All collapsed view](../assets/000-1/all-collapsed-view.png)
+![All collapsed view](../assets/047/all-collapsed-view.png)
 
 * When the user clicks the ‘Collapse all nested’ text button, the list will only show top-level or non-nested columns.
 * The up/down chevron that used to expand each column row to show full description and stats within the list area, will now change in functionality to expand/collapse each (one at a time, not all) level of the nested column. Therefore, only nested columns will have a chevron, and a column without any nesting under it will not have a chevron.
 
 
 
-![Each level drill down using chevron](../assets/000-1/each-level-drill-down-using-chevron.png)
+![Each level drill down using chevron](../assets/047/each-level-drill-down-using-chevron.png)
 
 * Users can keep clicking on the chevron to expand each level of nesting if they want to  drill down the path without expanding all nesting at once.
 
 
 
-![Column details in right side panel](../assets/000-1/column-details-in-right-side-panel.png)
+![Column details in right side panel](../assets/047/column-details-in-right-side-panel.png)
 
 * Clicking on a column name opens the right side panel to display all column details, including badges, description, and stats.
 * Only the columns with metadata will be displayed in interactive (Indigo 60) color, so that users can tell whether they will see useful information by clicking on its name.
-* For the new right side panel and layout, see details in the [Column details access and side panels RFC](./000-column-details-access-and-side-panels.md).
+* For the new right side panel and layout, see details in the [Column details access and side panels RFC](./046-column-details-access-and-side-panels.md).
 * In the edge case so many nested levels indent the list too much, users can still side scroll or widen the browser. 
 
 
@@ -81,7 +81,7 @@ For nested objects without named fields (e.g. Array and Map columns), we will us
 #### Example 1: Array
 Showing **array[array[array[struct]]]**
 
-![Array example](../assets/000-1/example-array.png)
+![Array example](../assets/047/example-array.png)
 
 * For Arrays, we will show a short row below the array column to highlight this nested column type. In this example, you can see how an ‘array [ array [ array [ struct ] ] ]’ would be represented differently from an ‘array [ struct ]’
 * For array[struct] or array[map], show the children rows of struct/map under the array column.
@@ -93,17 +93,17 @@ Showing **array[array[array[struct]]]**
 
 #### Example 2: Map
 
-![Map example](../assets/000-1/example-map.png)
+![Map example](../assets/047/example-map.png)
 
 * For Maps, the short row below will show ‘map { }’ and then display ‘map key’ and ‘map value’ rows underneath, with their own types specified.
 
 
-![Map example with nesting](../assets/000-1/example-map-with-nesting.png)
+![Map example with nesting](../assets/047/example-map-with-nesting.png)
 
 * If it includes nesting within the map, apply the same logic as any struct/map/array. Above example show how you would display **foo:map{string,struct[bar:string]}**
 
 
-![Array of map example](../assets/000-1/example-array-of-map.png)
+![Array of map example](../assets/047/example-array-of-map.png)
 
 * Combination of Array and Map could look like above example, showing an **array[map]**
 
@@ -120,7 +120,7 @@ We had implemented the first version of Nested Columns with a few compromises su
 * permanently expanded view lengthens the column list and is hard to navigate or drill down
 * ↳ icon for nested columns doesn’t leave much room to add expand column details CTA
 * We focused on representing hierarchy for nested objects with named fields (e.g. Struct/Message) but it didn’t display the hierarchy for nested object without named fields (e.g. Array and Map) correctly
-This enhancement requires layout change, existing component (chevron and column details area) behavior change and a new right side panel (See [Column details access and side panels RFC](./000-column-details-access-and-side-panels.md)), but we think it is the opportune timing and an investment to make Amundsen and Nested Columns more extensible. 
+This enhancement requires layout change, existing component (chevron and column details area) behavior change and a new right side panel (See [Column details access and side panels RFC](./046-column-details-access-and-side-panels.md)), but we think it is the opportune timing and an investment to make Amundsen and Nested Columns more extensible. 
 
 
 
@@ -131,7 +131,7 @@ We have explored several directions and decided against them because…
 
 ### Chevron to expand nesting, + icon to open column details
 
-![Chevron to expand nesting, + icon to open column details](../assets/000-1/alt-1.png)
+![Chevron to expand nesting, + icon to open column details](../assets/047/alt-1.png)
 
 * The chevron feels appropriate for expand/collapsing hierarchy in the list, but it’s not easy to add another CTA that will open column details in the same area (near column names)
 * Two types of expanding actions in the same list can easily take up a lot of vertical space, making it hard to scan and compare multiple columns
@@ -140,12 +140,12 @@ We have explored several directions and decided against them because…
 
 ### Table metadata in search results page, column metadata in table page
 
-![Table metadata preview in search results page](../assets/000-1/alt-2-1.png)
+![Table metadata preview in search results page](../assets/047/alt-2-1.png)
 
 * We thought about removing the table metadata section from the table details page to make more room and show column info, but it’s important to see the table metadata together with the list of columns.
-![Full width columns list](../assets/000-1/alt-2-2.png)
+![Full width columns list](../assets/047/alt-2-2.png)
 
-![Column metadata in right side panel](../assets/000-1/alt-2-3.png)
+![Column metadata in right side panel](../assets/047/alt-2-3.png)
 
 * A dedicated panel will help properly show all column metadata, but it didn’t have to be this wide.
 
@@ -154,21 +154,21 @@ We have explored several directions and decided against them because…
 ### Nested object without named fields (e.g. Array and Map) variations
 We debated a lot on the optimal way to highlight and distinguish the hierarchy of nested object without named fields, and the concepts we considered below were inferior to the direction we chose in terms of the clarity and visual design.
 
-![All caps short rows](../assets/000-1/alt-array-1.png)
+![All caps short rows](../assets/047/alt-array-1.png)
 
-![All caps short rows with brackets at start and end](../assets/000-1/alt-array-2.png)
+![All caps short rows with brackets at start and end](../assets/047/alt-array-2.png)
 
-![Short rows with brackets at start and end](../assets/000-1/alt-array-3.png)
+![Short rows with brackets at start and end](../assets/047/alt-array-3.png)
 
-![Array type icon](../assets/000-1/alt-array-4.png)
+![Array type icon](../assets/047/alt-array-4.png)
 
-![Dark border around the whole group](../assets/000-1/alt-array-5.png)
+![Dark border around the whole group](../assets/047/alt-array-5.png)
 
-![Grey frame around nested objects](../assets/000-1/alt-array-6.png)
+![Grey frame around nested objects](../assets/047/alt-array-6.png)
 
-![Grey vertical bar on the left side of nested objects](../assets/000-1/alt-array-7.png)
+![Grey vertical bar on the left side of nested objects](../assets/047/alt-array-7.png)
 
-![All caps labeling after column name](../assets/000-1/alt-array-8.png)
+![All caps labeling after column name](../assets/047/alt-array-8.png)
 
 
 
@@ -184,6 +184,6 @@ Decide whether we need to load a collapsed view as default in the edge case that
 
 We could add a breadcrumb at the top of right side to help users see the whole path with clickable shortcuts:
 
-![Column names breadcrumb](../assets/000-1/future-column-breadcrumb.png)
+![Column names breadcrumb](../assets/047/future-column-breadcrumb.png)
 
 * If the column is deeply nested and we cannot show all intermediate steps of nesting, we can truncate between the top-level column name and the last two levels of current selection. Users can click on the truncation ‘...’ icon to see a dropdown list of all truncated steps. 
