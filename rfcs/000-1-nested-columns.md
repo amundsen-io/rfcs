@@ -31,14 +31,17 @@ We expect these changes will enable our users to navigate and explore nested col
 ## Guide-level Explanation (aka Product Details)
 
 We have enhanced the way we represent nested columns, including the navigation and a layout change to showcase more metadata per nested columns.
+
 You can expand/collapse all nesting using the text button at top right corner.
+
 Please note that ⌄ icon is now used for expanding each level of nesting, rather than opening the column details within the list. Instead, when you click on the name of any column, you will see all its metadata in the dedicated right side panel. You can always close the panel to see more of the list.
+
 The hierarchy of nested objects without named fields (e.g. Array and Map) are now better specified and distinguished from nested objects with named fields (e.g. Struct).
 
 
 ## UI/UX-level Explanation
 
-###Expand/collapse all + each level drill down
+### Expand/collapse all + each level drill down
 
 ![Default all expanded view](../assets/000-1/default-all-expanded-view.png)
 
@@ -47,14 +50,19 @@ The hierarchy of nested objects without named fields (e.g. Array and Map) are no
 * Any nested columns (except for the top-level/parent column) will be a darker color to recede into the background, which can help users distinguish when quickly scanning the list.
 * The table header will be stick to the top at all times so users can always tell what the columns are as they scroll.
 
+
+
 ![All collapsed view](../assets/000-1/all-collapsed-view.png)
 
 * When the user clicks the ‘Collapse all nested’ text button, the list will only show top-level or non-nested columns.
 * The up/down chevron that used to expand each column row to show full description and stats within the list area, will now change in functionality to expand/collapse each (one at a time, not all) level of the nested column. Therefore, only nested columns will have a chevron, and a column without any nesting under it will not have a chevron.
 
+
+
 ![Each level drill down using chevron](../assets/000-1/each-level-drill-down-using-chevron.png)
 
 * Users can keep clicking on the chevron to expand each level of nesting if they want to  drill down the path without expanding all nesting at once.
+
 
 
 ![Column details in right side panel](../assets/000-1/column-details-in-right-side-panel.png)
@@ -63,6 +71,8 @@ The hierarchy of nested objects without named fields (e.g. Array and Map) are no
 * Only the columns with metadata will be displayed in interactive (Indigo 60) color, so that users can tell whether they will see useful information by clicking on its name.
 * For the new right side panel and layout, see details in the [Column details access and side panels RFC](./000-column-details-access-and-side-panels.md).
 * In the edge case so many nested levels indent the list too much, users can still side scroll or widen the browser. 
+
+
 
 ### Nested object without named fields (e.g. Array and Map)
 
@@ -78,6 +88,8 @@ Showing **array[array[array[struct]]]**
 * We will keep the clickable column type link so that users can see further nesting in the existing modal.
 
 * For array[string] or other terminal columns (without any children), no extra rows are shown below.
+
+
 
 #### Example 2: Map
 
@@ -97,6 +109,7 @@ Showing **array[array[array[struct]]]**
 
 
 
+
 ## Reference-level Explanation (aka Technical Details)
 
 In the current implementation, the type details shown in the table details view to describe nested columns are all handled by frontend parsing of the column type strings. This does not allow for associating other information to each level of nesting such as descriptions, badges, and other metadata, nor does it allow for indexing the nested columns so they can be searchable. Databuilder now has a ComplexTypeTransformer available that can be configured with a parsing function. This transformer can parse the column strings and store the nested columns as TypeMetadata on the backend. This PR shows the initial work to implement this, and this PR shows some additional changes to the parsing for a Hive type parser. This data will be accessible through the table metadata API and can be used to replace the frontend parsing to be displayed to users as described in this RFC.
@@ -108,6 +121,8 @@ We had implemented the first version of Nested Columns with a few compromises su
 * ↳ icon for nested columns doesn’t leave much room to add expand column details CTA
 * We focused on representing hierarchy for nested objects with named fields (e.g. Struct/Message) but it didn’t display the hierarchy for nested object without named fields (e.g. Array and Map) correctly
 This enhancement requires layout change, existing component (chevron and column details area) behavior change and a new right side panel (See [Column details access and side panels RFC](./000-column-details-access-and-side-panels.md)), but we think it is the opportune timing and an investment to make Amundsen and Nested Columns more extensible. 
+
+
 
 
 ## Alternatives
@@ -122,6 +137,7 @@ We have explored several directions and decided against them because…
 * Two types of expanding actions in the same list can easily take up a lot of vertical space, making it hard to scan and compare multiple columns
 
 
+
 ### Table metadata in search results page, column metadata in table page
 
 ![Table metadata preview in search results page](../assets/000-1/alt-2-1.png)
@@ -132,6 +148,7 @@ We have explored several directions and decided against them because…
 ![Column metadata in right side panel](../assets/000-1/alt-2-3.png)
 
 * A dedicated panel will help properly show all column metadata, but it didn’t have to be this wide.
+
 
 
 ### Nested object without named fields (e.g. Array and Map) variations
