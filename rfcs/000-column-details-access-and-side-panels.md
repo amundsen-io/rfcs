@@ -12,13 +12,18 @@ We propose updating the UI layout and adding a right side panel to improve the w
 
 ## Motivation
 
-Currently, our users need to click on the ⌄ icon to expand column details to see the full description and stats. The problem with this interaction is that 1) the expanded section takes up a lot of space and pushes down other columns in the list, 2) it is not scalable as we look to add more column metadata, and 3) the location of the ⌄ icon will clash with ↳ icon in complex tables that contain nested columns (as specified in Nested Columns RFC.) 
+Currently, our users need to click on the ⌄ icon to expand column details to see the full description and stats. The problem with this interaction is that... 
+1. the expanded section takes up a lot of space and pushes down other columns in the list, 
+2. it is not scalable as we look to add more column metadata, and 
+3. the location of the ⌄ icon will clash with ↳ icon in complex tables that contain nested columns (as specified in [Nested Columns RFC](./000-1-nested-columns.md).) 
+
 Also, this layout change could potentially improve our search results page, by providing a new way to preview table metadata in a right side panel without leaving the results page, so that users could compare and decide which table details page they want to click into.
 
 
 ## Guide-level Explanation (aka Product Details)
 
-You can now see column details on the right side panel instead of expanding the row in the table area. Click on any of the active columns and the panel will slide out from the right side. You can close it by clicking on the x at the top right corner. 
+You can now see column details on the right side panel instead of expanding the row in the table area. 
+Click on any of the active columns and the panel will slide out from the right side. You can close it by clicking on the x at the top right corner. 
 
 ## UI/UX-level Explanation
 
@@ -28,7 +33,7 @@ You can now see column details on the right side panel instead of expanding the 
 
 * Table metadata panel on left will be narrower, taking up 3 out of 12 columns instead of 5
 * All normal/top-level columns will not have a chevron to expand column details within the list, but the columns with description, stats, unique values, upstream columns and/or downstream columns will have a clickable column name, shown in interactive (Indigo 60) color.
-* The chevron will now have a new purpose: to expand/collapse nested columns hierarchy. See more details about the new chevron interaction, how we will visualize nested columns in this new layout, also utilizing the right side panel, in the Nested Columns RFC.
+* The chevron will now have a new purpose: to expand/collapse nested columns hierarchy. See more details about the new chevron interaction, how we will visualize nested columns in this new layout, also utilizing the right side panel, in the [Nested Columns RFC](./000-1-nested-columns.md).
 * After each clickable column name, small color-coded metadata indicator icons will show users which types of info are available for the column, even before they click on the column to see the details.
 * If a column does not have any description, stats, unique values, upstream columns and/or downstream columns info to show, the name will not be clickable, and therefore shown in regular black text.
 
@@ -39,6 +44,8 @@ You can now see column details on the right side panel instead of expanding the 
 
 * Clicking on a column name will highlight (Gray 10) the selected column and open up the right side panel, which properly displays all column details. This right side panel will also take up 3 out of 12 columns. (See below for layout grid view)
 * Users can copy the full column name, copy column link, edit description, see all other column metadata, and/or click x to close the side panel.
+
+
 
 ![Layout grid view](../assets/000/layout-grid-view.png)
 
@@ -54,11 +61,11 @@ The size of the table showing the column info will be reduced when the right pan
 
 ## Drawbacks
 
-We have held off on major layout changes due to implementation cost and disruption of existing UI, but the column list area is getting crowded as we add more column metadata, and is not flexible enough to add the nested columns improvements we want to make.
+We have held off on major layout changes due to implementation cost and disruption of existing UI, but the column list area is getting crowded as we add more column metadata, and is not flexible enough to add the [nested columns improvements](./000-1-nested-columns.md) we want to make.
 
 ## Alternatives
 
-We have explored several directions while designing for nested columns, and decided against them because…
+We have explored several directions while designing for [nested columns](./000-1-nested-columns.md), and decided against them because…
 
 ### Chevron to expand nesting, + icon to open column details
 
@@ -71,20 +78,30 @@ We have explored several directions while designing for nested columns, and deci
 
 ![Table metadata preview in search results page](../assets/000/alt-2-1.png)
 
+
 * We thought about removing the table metadata section from the table details page to make more room and show column info, but it’s important to see the table metadata together with the list of columns.
+
+
 ![Full width columns list](../assets/000/alt-2-2.png)
+
 
 ![Column metadata in right side panel](../assets/000/alt-2-3.png)
 
 * A dedicated panel will help properly show all column metadata, but it didn’t have to be this wide.
 
+
+
 ## Prior art
 
 No prior art, but this follows common patterns in web applications.
 
+
+
 ## Unresolved questions
 
 None
+
+
 
 ## Future possibilities
 
