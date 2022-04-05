@@ -50,6 +50,25 @@ Click on any of the active columns and the panel will slide out from the right s
 ![Layout grid view](../assets/046/layout-grid-view.png)
 
 
+### Other resource types
+
+This layout can be applied to all other resource types, to have a narrower metadata section on the left, and showing details of a selected list item in the right side panel.
+
+For example, Dashboard page will look like this in default state:
+
+![Layout grid view](../assets/046/dashboard-example-default.png)
+
+
+Then users can click on a table in the list to view table metadata:
+
+![Layout grid view](../assets/046/dashboard-example-side-panel-open.png)
+
+* This same right side panel can be used in the search results page in the future, to preview table metadata before going into a table page.
+
+
+
+
+
 ## Reference-level Explanation (aka Technical Details)
 
 We’ll update the layout to reduce the left sidebar and add a collapsible right sidebar. We’ll probably tackle it with a simple <aside> tag and a simple animation.
@@ -117,4 +136,10 @@ In the future, we can preview table info in the search page too, using the same 
 If the table metadata gets so long to scroll down, we could use tabs to break up the content e.g. move the Issues to separate tab:
 
 ![Tabs for table metadata panel](../assets/046/future-tabs-for-table-metadata.png)
+
+
+### Dedicated column page
+
+As @mgorsk1 has suggested, we could add a full, dedicated column page in the future, when the column details and metadata scales up so much that it no longer fits inside the side panel.
+
 
