@@ -46,7 +46,7 @@ The hierarchy of nested objects without named fields (e.g. Array and Map) are no
 ![Default all expanded view](../assets/047/default-all-expanded-view.png)
 
 * As default, all nested columns will be expanded, showing the option for user to ‘Collapse all nested’
-* For most complex tables, this default behavior should still load fine, but in the edge case that there are prohibitively many columns to render (threshold will likely be ~1046), we may need to start with an all collapsed view for performance reasons.
+* For most complex tables, this default behavior should still load fine, but in the edge case that there are prohibitively many columns to render (threshold will likely be ~1000), we may need to start with an all collapsed view for performance reasons.
 * Any nested columns (except for the top-level/parent column) will be a darker color to recede into the background, which can help users distinguish when quickly scanning the list.
 * The table header will be stick to the top at all times so users can always tell what the columns are as they scroll.
 
