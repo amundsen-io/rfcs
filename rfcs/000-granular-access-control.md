@@ -7,14 +7,15 @@
 
 ## Summary
 
-This RFC proposes first implementation of granular access control feature for Amundsen frontend.
+This RFC proposes first implementation of granular access control feature for Amundsen frontend.  
+
 **Included in phase 1**
 
 * enforcing authorization rules specified in database
 * filtering search query results (prevent users from seeing content they are not authorized to access)
 * Basic UI (redirect to 'you are not authorized to access this resource' page)
 
-After implementation of Phase 1, Amundsen users will be able to define set of granular authorization rules for users and groups by inserting authorization rules into database. 
+After implementation of Phase 1, Amundsen users will be able to define set of granular authorization rules for users and groups by inserting them into database. 
 
 I've also included [Demo PR](https://github.com/amundsen-io/amundsen/pull/2029), which aims to show an idea behind implementation of this feature. This PR implements authorization for "get_table_metadata" endpoint. Please take a look at `frontend/amundsen_application/authz_config.py`, as well as changes in `frontend/amundsen_application/api/metadata/v0.py` files.
 Note that code on this branch won't fully reflect final implementation as it is subject to change as concept evolves. 
@@ -35,7 +36,7 @@ In longer term this feature could help with maintaning and administration of amu
 ## Guide-level Explanation (aka Product Details)
 
 ### Authorization (Granular access control)
-When you enable authorization, you can control permissions on objects stored in Amundsen. You can define user groups and manage permissions on different scopes (e.g. database, table). Granular access control can also support filtering query results. By default, Amundsen is using [Casbin](https://casbin.org/docs/overview) as the authorization client. 
+When you enable authorization, you can control permissions on objects stored in Amundsen. You can define groups and manage permissions on different scopes (such as database or table). Granular access control also supports filtering search results. By default, Amundsen uses [Casbin](https://casbin.org/docs/overview) as the authorization client. 
 
 ### Default configuration
 Access Control List (ACL) is the default model used in Amundsen. Each user (or group of users) can be granted either `READ` or `WRITE` permissions on given resource type and scope. For example, we can add a rule that will allow user `bob@org.com` to view (READ) metadata of all tables from schema `hive`.
@@ -68,6 +69,8 @@ Whenever unauthorized principal tries to access a resource, user should be redir
 ### Authorization flow
 To abstract application code from access control model as much as possible, amundsen calls authorization client in order to verify that "subject {S} is allowed to perform action {A} on object {O}".
 
+![Concept Preview](../assets/000/concept.png)
+
 There are 3 components added to Amundsen frontend, which are described below.
 
 **AuthorizationClient**
@@ -82,10 +85,9 @@ I’ve added this component, because access control based on the HTTP method and
 **BaseAction enum**
 Enumerator with all possible actions (e.g READ, WRITE, DELETE) - developers can implement their own set of actions to meet  requirements for granularity.
 
-![Concept Preview](../assets/000/concept.png)
 
 ### Authorization config
-Authorization flow components can be modified by changing config located in `frontend/amundsen_application/authz_config.py` file. Please take a look at Demo PR linked above to understand rough idea behind this config file.
+Authorization flow components can be modified by changing config located in `frontend/amundsen_application/authz_config.py` file. Please take a look at Demo PR linked above to understand rough idea behind it.
 
 ### Casbin policy
 Authorization model is defined as a single `model.conf` file.
@@ -120,7 +122,7 @@ Note that current implementation does not have notion of group of users, but it 
 
 
 ## Drawbacks
-As current model works on level of endpoint, it would require relatively high effort to implement it for whole application, as we would need to modify every function of every blueprint. Despite this, once we ship authorization for a single endpoint, implementation for consecutive ones should be much easier and faster.
+As proposed model works on level of endpoint, it would require relatively high effort to implement it for whole application, as we would need to modify every function of every blueprint. Despite this, once we ship authorization for a single endpoint, implementation for consecutive ones should be much easier and faster.
 
 ## Alternatives
 Since Amundsen stores mostly metadata, for majority of use cases granular access is not required, however I think almost everyone could benefit from simple model that allows defining READ/WRITE permissions on application level. Outlined concept certainly makes such scenario possible, however it may be an overkill. I think logic of application would be simpler by making such assumption, however most of code for granular control is already in place in Demo PR linked above. I am sometimes a bit frustrated with applications making certain assumption about granularity, so for for me it is important that users can adjust granularity by modifying config files.
