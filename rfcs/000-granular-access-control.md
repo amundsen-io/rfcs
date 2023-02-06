@@ -142,10 +142,6 @@ Main advantage of DataHub's granular access policies is very convenient [UI](htt
 
 
 ## Unresolved questions
-### Default granularity
-Current default authorization model implements two possible actions (READ and WRITE) for every resource type (Table, Dashboard etc). Limitation of that is that it won't support complex scenarios such as "user should be able to modify **table tag**, but not to modify table description", however this level of granularity could be achieved by modifying [authz_config.py]() file*. For me this setting is good tradeoff between simplicity and granularity, but I am happy to discuss it.
-
-**Just to be 100% transparent, such granularity would possible, but cumbersome to enforce in current Demo implementation, however I know how to support it easier and I am happy to implement that*.
 
 ### Which adapter should we use for casbin?
 Available [adapters](https://casbin.org/docs/adapters).
@@ -158,6 +154,11 @@ Also, since casbin would require some backend for storing the data (e.g. postgre
 
 ### Filtering elasticsearch results based on authorization rules
 In theory, it should be possible to whitelist elastic search records, by getting [all permissions of users](https://casbin.org/docs/rbac-api#getimplicitpermissionsforuser) and adding it as filter to search query, however i have never tested it so i am not sure how easy it will be to integrate it with current app.
+
+### Default granularity
+Current default authorization model implements two possible actions (READ and WRITE) for every resource type (Table, Dashboard etc). Limitation of that is that it won't support complex scenarios such as "user should be able to modify **table tag**, but not to modify table description", however this level of granularity could be achieved by modifying [authz_config.py]() file*. For me current setting is good tradeoff between simplicity and granularity, but I am happy to discuss it.
+
+**Just to be 100% transparent, such granularity would possible, but cumbersome to enforce in current Demo implementation, however I know how to support it easier and I am happy to implement that*.
 
 ## Future possibilities
 * API for permission management (add group, add user, add user to group, add permission)
