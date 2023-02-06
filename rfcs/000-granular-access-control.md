@@ -82,7 +82,7 @@ I’ve added this component, because access control based on the HTTP method and
 **BaseAction enum**
 Enumerator with all possible actions (e.g READ, WRITE, DELETE) - developers can implement their own set of actions to meet  requirements for granularity.
 
-![alt concept](../assets/048/concept.png)
+![Concept Preview](../assets/000/concept.png)
 
 ### Authorization config
 Authorization flow components can be modified by changing config located in `frontend/amundsen_application/authz_config.py` file. Please take a look at Demo PR linked above to understand rough idea behind this config file.
