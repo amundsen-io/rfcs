@@ -1,6 +1,6 @@
 - Feature Name: Granular access control - Phase 1
 - Start Date: 2023-01-22
-- RFC PR: N/A
+- RFC PR: [49](https://github.com/amundsen-io/rfcs/pull/49)
 - Amundsen Issue: N/A
 
 # Granular access control - Phase 1
@@ -69,7 +69,7 @@ Whenever unauthorized principal tries to access a resource, user should be redir
 ### Authorization flow
 To abstract application code from access control model as much as possible, amundsen calls authorization client in order to verify that "subject {S} is allowed to perform action {A} on object {O}".
 
-![Concept Preview](../assets/000/concept.png)
+![Concept Preview](../assets/049/concept.png)
 
 There are 3 components added to Amundsen frontend, which are described below.
 
