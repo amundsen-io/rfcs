@@ -37,7 +37,7 @@ Two of these filters focused on removing friction between your users and the sea
 
 The radio select will render multiple options of your choosing, allowed you to select/deselect these options, and have the page automatically rerender the search results based on these options. For example, suppose we've got many tables in our system, but these all live in a few main database locations, then a radio select is probably the correct filter category to use:
 
-![Example of radio filter](/assets/050/radio-example.png)
+![Example of radio filter](../assets/050/radio-example.png)
 
 Radio selects can support multiple selections, or just a single selection at a time. The options rendered is also completely configurable, and can show an icon alongside the option. If you'd like to provide an option for 'everything else' that will simply match anything not covered by the visible options, you can include that too (This is the 'Other' option in the image above).
 
@@ -47,14 +47,14 @@ The dropdown select will render a searchable dropdown which users can type into 
 
 For example, suppose we've got about 300 schemas in our system, which is too much for a radio button scheme, but not enough to warrant avoiding a better experience than freetext entirely. We can show the schemas in a searchable dropdown, allowing the users to see all schemas available.
 
-![Example of Dropdown search filter](/assets/050/search-example.png)
+![Example of Dropdown search filter](../assets/050/search-example.png)
 
 This could also rerender the search options based on the database filter values mentioned above! So when the snowflake checkbox isn't checked, snowflake schemas would not be shown in the dropdown.
 
 One more example of dynamic rendering for search is in table tags. Users might have tagged resources with a `KEY=VALUE` format, so  `my_schema.my_table` might have tags `ETL_OWNER=hsimpson`, `YEAR_INTRODUCED=2022`, etc. In order to adequately filter by this in our search page, you might have two dropdowns; One for selecting the tag key, and another for selecting the tag value.
 
-![Example of tag key options](/assets/050/tag-key.png)
-![Example of tag value options](/assets/050/tag-value.png)
+![Example of tag key options](../assets/050/tag-key.png)
+![Example of tag value options](../assets/050/tag-value.png)
 
 The tag value dropdown can then render it's search options based on the option selected for tag key.
 
@@ -173,7 +173,7 @@ Both of these, while powerful, are less intuitive for users and less controlled 
 
 This radio select feature is present in acryl/datahub:
 
-![Example of search view in Acryl](/assets/050/acryl-filter.png)
+![Example of search view in Acryl](../assets/050/acryl-filter.png)
 
 Although I am not involved with other data communites and am unaware of the opinions / experiences of them.
 
