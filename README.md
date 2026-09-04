@@ -1,3 +1,5 @@
+# Due to inactivity, this project was archived in September 2026. The contents will remain available for historical purposes.
+
 # Amundsen RFCs
 
 We can handle most of the issues we see with regular GitHub issues. However, some changes are "substantial", and we ask that these go through a design process and produce a consensus among the Amundsen community and the [sub-teams](sub-teams).
